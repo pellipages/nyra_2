@@ -26,7 +26,7 @@
 }
 
 .gallery-heading p {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-serif);
     font-size: 23px;
     letter-spacing: 3px;
     color: #80505A;
@@ -34,7 +34,7 @@
 }
 
 .gallery-heading h2 {
-    font-family: 'Great Vibes', cursive;
+    font-family: var(--font-script);
     font-size: 76px;
     font-weight: 400;
     color: #713747;

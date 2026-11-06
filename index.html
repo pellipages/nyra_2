@@ -8,11 +8,17 @@
 
     <title>Nyra's Half Saree Ceremony</title>
 
-    <!-- Google Fonts -->
+    <!-- Fonts: Telugu script + interim Canela fallback (Cormorant Garamond) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Noto+Serif+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Serif+Telugu:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Self-hosted statement script, preloaded so the hero title doesn't flash -->
+    <link rel="preload" href="assets/fonts/pinyon-script/pinyon-script-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Typography system (font faces + roles) -->
+    <link rel="stylesheet" href="css/fonts.css">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/global.css">
@@ -79,7 +85,8 @@
             background: rgba(255, 240, 240, 0.95);
             color: #86565c;
 
-            font-family: Georgia, serif;
+            font-family: var(--font-serif);
+            font-weight: 500;
             font-size: 13px;
             cursor: pointer;
 

@@ -27,9 +27,9 @@
 
 /* ENGLISH HEADING */
 #meet-bappu-bomma > div:first-child h1 {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: var(--font-serif) !important;
     font-size: 76px !important;
-    font-weight: 500 !important;
+    font-weight: 300 !important;
     line-height: 1.2 !important;
     color: #542F38 !important;
     letter-spacing: 1px;
@@ -38,7 +38,7 @@
 
 /* TELUGU HEADING */
 #meet-bappu-bomma > div:first-child h2 {
-    font-family: 'Noto Serif Telugu', serif !important;
+    font-family: var(--font-telugu) !important;
     font-size: 95px !important;
     font-weight: 600 !important;
     line-height: 1.4 !important;
@@ -48,7 +48,7 @@
 
 /* NYRA TEXT */
 #meet-bappu-bomma > div:first-child h3 {
-    font-family: 'Great Vibes', cursive !important;
+    font-family: var(--font-statement) !important;
     font-size: 120px !important;
     font-weight: 400 !important;
     line-height: 1.2 !important;

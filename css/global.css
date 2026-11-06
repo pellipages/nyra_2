@@ -29,7 +29,7 @@ html {
     padding: 40px 20px;
     text-align: center;
     color: #914c5d;
-    font-family: "Cormorant Garamond", serif;
+    font-family: var(--font-serif);
     font-size: 22px;
   }
   

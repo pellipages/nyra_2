@@ -25,6 +25,7 @@
 .rsvp-small {
     text-align: center;
     font-size: 12px;
+    font-weight: 500;
     letter-spacing: 3px;
     color: #95636d;
     margin-bottom: 12px;
@@ -32,7 +33,7 @@
 
 .rsvp-card h2 {
     text-align: center;
-    font-family: 'Great Vibes', cursive;
+    font-family: var(--font-script);
     font-size: 55px;
     font-weight: normal;
     color: #713747;

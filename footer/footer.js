@@ -17,13 +17,14 @@
 
 .footer-overline {
     font-size: 12px;
+    font-weight: 500;
     letter-spacing: 4px;
     color: #a66e73;
     margin-bottom: 15px;
 }
 
 .nyra-footer h2 {
-    font-family: 'Great Vibes', cursive;
+    font-family: var(--font-script);
     font-size: clamp(38px, 6vw, 58px);
     font-weight: 400;
     color: #985c65;
@@ -33,7 +34,7 @@
 .footer-message {
     max-width: 520px;
     margin: 0 auto;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-serif);
     font-size: 19px;
     line-height: 1.7;
     color: #704d50;
@@ -61,7 +62,7 @@
 }
 
 .nyra-footer h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-serif);
     font-size: clamp(17px, 3vw, 23px);
     font-weight: 500;
     color: #86565c;
@@ -69,7 +70,7 @@
 }
 
 .footer-date {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-serif);
     font-size: 18px;
     letter-spacing: 1px;
     color: #79575a;
@@ -77,8 +78,10 @@
 
 .footer-closing {
     margin-top: 35px;
-    font-family: 'Great Vibes', cursive;
-    font-size: 30px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 23px;
     color: #a56b73;
 }
 
