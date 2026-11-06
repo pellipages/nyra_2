@@ -38,20 +38,29 @@
     pointer-events: none;
   }
   
-  /* MOVE ALL TEXT FAR TO THE RIGHT */
+  /* CENTRE THE TEXT INSIDE THE FRAME OF hero-image.png
+     The background uses "cover", so the image is scaled by --hero-s
+     (screen px per image px) and cropped around its centre. The frame's
+     centre in the 1080x1920 image is x=552, y=1030 (image centre is
+     540, 960), so the text is placed at that point using the same scale.
+     This keeps it centred in the frame at every screen size. */
+  #hero {
+    --hero-s: max(calc(100vw / 1080), calc(100svh / 1920));
+  }
+
   #hero .hero-content {
-    position: relative;
+    position: absolute;
     z-index: 2;
-    left: 0;
-    flex: 0 0 min(800px, 100%);
-    width: min(800px, 100%);
-    max-width: 800px;
-    margin: 0 auto;
+    left: calc(50% + var(--hero-s) * 12);
+    top: calc(50% + var(--hero-s) * 70);
+    transform: translate(-50%, -50%);
+    width: calc(var(--hero-s) * 640);
+    max-width: 100%;
+    margin: 0;
     padding: 0;
     text-align: center;
-    transform: translateX(110px) !important;
-}
-  
+  }
+
   /* HEADING */
   #hero .hero-eyebrow {
     margin-bottom: 20px;
@@ -174,12 +183,6 @@
   
   /* MOBILE */
   @media (max-width: 480px) {
-    #hero .hero-content {
-      flex-basis: 100%;
-      width: 100%;
-      transform: translateX(60px) !important;
-    }
-  
     #hero .hero-eyebrow {
       letter-spacing: 2px;
     }
