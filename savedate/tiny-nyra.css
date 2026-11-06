@@ -1,0 +1,455 @@
+/* =========================================================
+   PATCH 7 — TINY NYRA
+   Paper-doll cutout that pops out of each coin, then walks
+   across the card. Transform / opacity animation only.
+========================================================= */
+
+#save-the-date {
+  --tiny-nyra-height: 96px;
+}
+
+@media (max-width: 650px) {
+  #save-the-date {
+    --tiny-nyra-height: 80px;
+  }
+}
+
+/* ---------- shared doll image ---------- */
+
+#save-the-date .sd-pop img,
+#save-the-date .sd-walker img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: var(--tiny-nyra-height);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* =========================================================
+   1. POP OUT OF THE COIN
+========================================================= */
+
+#save-the-date .sd-pop {
+  position: absolute;
+  z-index: 7;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  animation: sd-pop-up 2.6s cubic-bezier(0.3, 0.7, 0.4, 1) both;
+  will-change: transform, opacity;
+}
+
+#save-the-date .sd-pop-wave {
+  display: block;
+  transform-origin: 50% 100%;
+  animation: sd-wave 0.55s ease-in-out 0.55s 3 alternate both;
+}
+
+@keyframes sd-pop-up {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -30%) scale(0.2);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(-50%, -112%) scale(1.08);
+  }
+  20% {
+    transform: translate(-50%, -96%) scale(0.97, 1.03);
+  }
+  28% {
+    transform: translate(-50%, -108%) scale(1.02);
+  }
+  36% {
+    transform: translate(-50%, -100%) scale(1);
+  }
+  84% {
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -45%) scale(0.25);
+  }
+}
+
+@keyframes sd-wave {
+  from {
+    transform: rotate(-6deg);
+  }
+  to {
+    transform: rotate(6deg);
+  }
+}
+
+/* Sparkles */
+
+#save-the-date .sd-sparks {
+  position: absolute;
+  z-index: 8;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+#save-the-date .sd-spark {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  background: var(--c-blossom, #f4bfd0);
+  clip-path: polygon(
+    50% 0, 62% 38%, 100% 50%, 62% 62%,
+    50% 100%, 38% 62%, 0 50%, 38% 38%
+  );
+  opacity: 0;
+  animation: sd-spark 0.85s ease-out var(--delay, 0s) both;
+}
+
+#save-the-date .sd-spark.is-gold {
+  background: var(--c-gold-light, #f3dfb0);
+}
+
+@keyframes sd-spark {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(calc(var(--dx) * 0.4), calc(var(--dy) * 0.4)) scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.2) rotate(90deg);
+  }
+}
+
+/* =========================================================
+   2. WALK ACROSS THE CARD
+========================================================= */
+
+/* Room at the bottom of the card for her to walk on */
+#save-the-date .sd-card.has-walker {
+  padding-bottom: calc(var(--tiny-nyra-height) + 30px);
+}
+
+/* The lane sits on the card's inner gold frame line */
+#save-the-date .sd-lane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 13px;
+  z-index: 4;
+  height: calc(var(--tiny-nyra-height) + 10px);
+  pointer-events: none;
+}
+
+#save-the-date .sd-walker {
+  position: absolute;
+  right: 16px;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  line-height: 0;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#save-the-date .sd-walker:focus-visible {
+  outline: 2px solid var(--c-raspberry);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+#save-the-date .sd-walker.is-walking,
+#save-the-date .sd-walker.is-idle {
+  opacity: 1;
+}
+
+#save-the-date .sd-walker.is-walking {
+  animation: sd-walk var(--walk-duration, 6s) linear both;
+  will-change: transform;
+}
+
+@keyframes sd-walk {
+  from {
+    transform: translateX(var(--walk-from, -400px));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+#save-the-date .sd-walker-body {
+  display: block;
+  transform-origin: 50% 100%;
+}
+
+#save-the-date .sd-walker-body img {
+  transform-origin: 50% 100%;
+}
+
+/* Little waddle: two bobs per sway */
+#save-the-date .sd-walker.is-walking .sd-walker-body img {
+  animation: sd-waddle 0.9s ease-in-out infinite;
+}
+
+@keyframes sd-waddle {
+  0%, 100% {
+    transform: rotate(-5deg) translateY(0);
+  }
+  25% {
+    transform: rotate(0deg) translateY(-5px);
+  }
+  50% {
+    transform: rotate(5deg) translateY(0);
+  }
+  75% {
+    transform: rotate(0deg) translateY(-5px);
+  }
+}
+
+/* Standing still: slow, gentle sway */
+#save-the-date .sd-walker.is-idle .sd-walker-body img {
+  animation: sd-sway 3.4s ease-in-out infinite;
+}
+
+@keyframes sd-sway {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+/* Tap hop */
+#save-the-date .sd-walker-body.is-hop {
+  animation: sd-hop 0.5s ease-out;
+}
+
+@keyframes sd-hop {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  20% {
+    transform: translateY(0) scale(1.06, 0.92);
+  }
+  50% {
+    transform: translateY(-16px) scale(0.97, 1.05);
+  }
+  80% {
+    transform: translateY(0) scale(1.04, 0.95);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Scattered petals */
+
+#save-the-date .sd-scatter-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#save-the-date .sd-scatter-petal {
+  position: absolute;
+  bottom: calc(var(--tiny-nyra-height) * 0.5);
+  width: var(--size, 16px);
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  animation: sd-scatter 1.9s ease-out both;
+  will-change: transform, opacity;
+}
+
+@keyframes sd-scatter {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+  15% {
+    opacity: 0.95;
+    transform: translate(calc(var(--dx) * 0.25), -20px) scale(1) rotate(60deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), calc(var(--tiny-nyra-height) * 0.5)) scale(0.9)
+      rotate(var(--rot, 300deg));
+  }
+}
+
+/* Giggle bubble */
+
+#save-the-date .sd-bubble {
+  position: absolute;
+  right: calc(100% - 6px);
+  bottom: 55%;
+  padding: 3px 11px 4px;
+  border: 1px solid var(--c-gold);
+  border-radius: 14px;
+  background: var(--c-ivory);
+  color: var(--c-raspberry-deep);
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.3;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(6px) scale(0.85);
+  transform-origin: 100% 100%;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#save-the-date .sd-bubble.is-on {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Hearts */
+
+#save-the-date .sd-heart {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  width: 18px;
+  height: 17px;
+  line-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  animation: sd-heart 1.5s ease-out var(--hd, 0s) both;
+  will-change: transform, opacity;
+}
+
+#save-the-date .sd-heart svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: var(--c-rose, #d68aa3);
+}
+
+@keyframes sd-heart {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.4);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--hx) * 0.4), -20px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--hx)), -70px) scale(0.9);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   No pop-out, no walking. She just stands on the card, and a
+   tap shows a still bubble and heart.
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  #save-the-date .sd-pop,
+  #save-the-date .sd-sparks,
+  #save-the-date .sd-scatter-layer {
+    display: none !important;
+  }
+
+  #save-the-date .sd-walker,
+  #save-the-date .sd-walker *,
+  #save-the-date .sd-heart,
+  #save-the-date .sd-bubble {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  #save-the-date .sd-heart {
+    opacity: 1;
+    transform: translate(-50%, -20px);
+  }
+}
+
+/* =========================================================
+   SCRATCH DELIGHT (Patch 8)
+========================================================= */
+
+#save-the-date .sd-dust {
+  position: absolute;
+  z-index: 2;
+  width: 5px;
+  height: 5px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: #fff3c4;
+  box-shadow: 0 0 6px rgba(255, 236, 170, 0.9);
+  pointer-events: none;
+  animation: sd-dust 0.6s ease-out both;
+}
+
+#save-the-date .sd-dust.is-pink {
+  background: var(--c-blossom, #f4bfd0);
+  box-shadow: 0 0 6px rgba(244, 191, 208, 0.9);
+}
+
+@keyframes sd-dust {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--dxs, 0), 26px) scale(0.3);
+  }
+}
+
+#save-the-date .sd-burst-petal {
+  position: absolute;
+  z-index: 9;
+  width: var(--bs, 18px);
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  animation: sd-burst 1.15s cubic-bezier(0.2, 0.7, 0.4, 1) both;
+  will-change: transform, opacity;
+}
+
+@keyframes sd-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  12% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--bx)), calc(-50% + var(--by)))
+      rotate(calc(var(--br) * 0.5)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--bx) * 1.3), calc(-50% + var(--by) + 110px))
+      rotate(var(--br)) scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #save-the-date .sd-dust,
+  #save-the-date .sd-burst-petal {
+    display: none !important;
+  }
+}

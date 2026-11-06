@@ -6,7 +6,7 @@
 
    Palette story: soft pastels, confident and elegant —
    rose quartz + warm pink + butter yellow + champagne gold, with
-   a faint lavender mist and peach blooms. No dark grounds; depth comes from a few deeper
+   a faint pink mist and peach blooms. No dark grounds; depth comes from a few deeper
    mulberry / sage tones used only for text and buttons.
 
    ROLE            TOKEN                 USED FOR
@@ -18,7 +18,7 @@
    Accent (metal)  --c-gold              Rules, ornaments, borders, coins
                    --c-gold-deep         Gold TEXT on pastel grounds (AA)
                    --c-gold-light        Soft champagne highlights
-   Backgrounds     --c-blush / --c-ivory / --c-cream / --c-lavender
+   Backgrounds     --c-blush / --c-ivory / --c-cream / --c-pink-mist
                    --c-butter / --c-peach
    Text            --c-ink               Strongest body text
                    --c-ink-soft          Paragraphs
@@ -47,7 +47,7 @@
   --c-blush-soft:      #fdecec;
   --c-ivory:           #fff8ef;
   --c-cream:           #f8ecdf;
-  --c-lavender:        #e6dcf3;
+  --c-pink-mist:       #f8d7e6;   /* was lavender */
   --c-butter:          #fbefcf;
   --c-peach:           #ffe3d3;
 
@@ -73,16 +73,16 @@
   /* Default for content sections (global.css) */
   --wash-bloom:
     radial-gradient(ellipse 70% 42% at 12% 16%, rgba(255, 251, 246, 0.86), transparent 70%),
-    radial-gradient(ellipse 58% 48% at 90% 58%, rgba(230, 220, 243, 0.78), transparent 72%),
+    radial-gradient(ellipse 58% 48% at 90% 58%, rgba(248, 215, 230, 0.78), transparent 72%),
     radial-gradient(ellipse 66% 40% at 28% 94%, rgba(255, 227, 211, 0.80), transparent 70%),
     linear-gradient(rgba(255, 244, 244, 0.22), rgba(252, 236, 240, 0.30));
 
-  /* Save the Date — lavender mist */
-  --wash-lavender:
+  /* Save the Date — pink mist */
+  --wash-pink-mist:
     radial-gradient(ellipse 62% 40% at 85% 12%, rgba(255, 251, 246, 0.88), transparent 70%),
-    radial-gradient(ellipse 70% 46% at 10% 48%, rgba(230, 220, 243, 0.90), transparent 74%),
+    radial-gradient(ellipse 70% 46% at 10% 48%, rgba(248, 215, 230, 0.90), transparent 74%),
     radial-gradient(ellipse 60% 38% at 78% 90%, rgba(255, 227, 211, 0.78), transparent 70%),
-    linear-gradient(rgba(249, 235, 244, 0.38), rgba(240, 230, 248, 0.42));
+    linear-gradient(rgba(253, 232, 241, 0.38), rgba(252, 226, 238, 0.42));
 
   /* Gallery — butter yellow and blush */
   --wash-butter:
@@ -95,20 +95,20 @@
   --wash-rosewater:
     radial-gradient(ellipse 70% 44% at 50% 8%, rgba(255, 248, 239, 0.88), transparent 72%),
     radial-gradient(ellipse 56% 50% at 6% 70%, rgba(255, 227, 211, 0.80), transparent 72%),
-    radial-gradient(ellipse 58% 44% at 96% 86%, rgba(230, 220, 243, 0.76), transparent 70%),
+    radial-gradient(ellipse 58% 44% at 96% 86%, rgba(248, 215, 230, 0.76), transparent 70%),
     linear-gradient(rgba(249, 217, 220, 0.46), rgba(253, 236, 236, 0.40));
 
   /* Venue — warm cream */
   --wash-ivory:
     radial-gradient(ellipse 64% 42% at 88% 14%, rgba(255, 251, 246, 0.90), transparent 70%),
     radial-gradient(ellipse 60% 46% at 8% 56%, rgba(255, 227, 211, 0.72), transparent 72%),
-    radial-gradient(ellipse 66% 38% at 70% 96%, rgba(230, 220, 243, 0.72), transparent 70%),
+    radial-gradient(ellipse 66% 38% at 70% 96%, rgba(248, 215, 230, 0.72), transparent 70%),
     linear-gradient(rgba(255, 248, 239, 0.50), rgba(248, 236, 223, 0.54));
 
   /* RSVP — blush */
   --wash-blush:
     radial-gradient(ellipse 66% 42% at 16% 18%, rgba(255, 248, 239, 0.80), transparent 70%),
-    radial-gradient(ellipse 60% 48% at 88% 72%, rgba(230, 220, 243, 0.70), transparent 72%),
+    radial-gradient(ellipse 60% 48% at 88% 72%, rgba(248, 215, 230, 0.70), transparent 72%),
     linear-gradient(rgba(249, 217, 220, 0.50), rgba(246, 205, 214, 0.40));
 
   /* Legacy names still referenced by intro.css */

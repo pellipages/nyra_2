@@ -1,148 +1,416 @@
-﻿
-/* BAPPU BOMMA SECTION */
+/* =========================================================
+   MEET OUR LITTLE BAPPU BOMMA — NYRA
+   Nyra stands in an arch like a framed Bapu painting, with
+   her story pinned around her as taped polaroids.
+   Mobile first: arch, then a swipeable row of photos.
+   Desktop: photos fan out on either side of the arch.
+========================================================= */
+
 #meet-bappu-bomma {
-    position: relative !important;
-    min-height: 100vh !important;
-    width: 100%;
-    overflow: hidden;
-
-    background-image: var(--wash-bloom), url("../assets/images/half-saree-wallpaper.png") !important;
-    background-repeat: no-repeat, repeat !important;
-    background-position: center center, center center !important;
-    background-size: 100% 100%, 120% auto !important;
-
-    display: block !important;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
 
-/* TEXT CONTAINER */
-#meet-bappu-bomma > div:first-child {
-    position: absolute !important;
-    left: 1% !important;
-    top: 58% !important;
-    transform: translateY(-50%) !important;
-    width: 60% !important;
-    text-align: center !important;
-    z-index: 10 !important;
+#meet-bappu-bomma *,
+#meet-bappu-bomma *::before,
+#meet-bappu-bomma *::after {
+  box-sizing: border-box;
 }
 
-/* ENGLISH HEADING */
-#meet-bappu-bomma > div:first-child h1 {
-    font-family: var(--font-serif) !important;
-    font-size: 76px !important;
-    font-weight: 300 !important;
-    line-height: 1.2 !important;
-    color: var(--c-plum) !important;
-    letter-spacing: 1px;
-    margin: 0 0 15px !important;
+#meet-bappu-bomma .bb-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* TELUGU HEADING */
-#meet-bappu-bomma > div:first-child h2 {
-    font-family: var(--font-telugu) !important;
-    font-size: 95px !important;
-    font-weight: 600 !important;
-    line-height: 1.4 !important;
-    color: var(--c-raspberry-deep) !important;
-    margin: 0 !important;
+/* ---------- heading ---------- */
+
+#meet-bappu-bomma .bb-eyebrow {
+  margin: 0;
+  color: var(--c-gold-deep);
+  font-family: var(--font-serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
-/* NYRA TEXT */
-#meet-bappu-bomma > div:first-child h3 {
-    font-family: var(--font-statement) !important;
-    font-size: 120px !important;
-    font-weight: 400 !important;
-    line-height: 1.2 !important;
-    color: var(--c-raspberry-deep) !important;
-    margin: 10px 0 0 !important;
+#meet-bappu-bomma .bb-telugu {
+  margin: 6px 0 0;
+  color: var(--c-raspberry-deep);
+  font-family: var(--font-telugu);
+  font-size: clamp(40px, 11vw, 78px);
+  font-weight: 600;
+  line-height: 1.35;
 }
 
-/* PORTRAIT CONTAINER */
-#meet-bappu-bomma .bappu-bomma-inner {
-    position: absolute;
-    right: 2%;
-    bottom: 0;
-    width: 45%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    z-index: 1;
+#meet-bappu-bomma .bb-name {
+  margin: -6px 0 0;
+  color: var(--c-raspberry);
+  font-family: var(--font-statement);
+  font-size: clamp(76px, 19vw, 132px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0 !important;
+  text-shadow: 0 2px 18px rgba(255, 255, 255, 0.8);
 }
 
-/* NYRA IMAGE */
-#meet-bappu-bomma .bappu-bomma-portrait {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
-    object-position: bottom;
+#meet-bappu-bomma .bb-lede {
+  max-width: 520px;
+  margin: 10px auto 0;
+  color: var(--c-ink-soft);
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 2.2vw, 19px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
-/* MOBILE VIEW */
-@media (max-width: 600px) {
+/* ---------- stage ---------- */
 
-    #meet-bappu-bomma {
-        min-height: 85vh !important;
-    }
-
-    #meet-bappu-bomma > div:first-child {
-        left: 1% !important;
-        width: 54% !important;
-    }
-
-    #meet-bappu-bomma > div:first-child h1 {
-        font-size: 20px !important;
-    }
-
-    #meet-bappu-bomma > div:first-child h2 {
-        font-size: 26px !important;
-    }
-
-    #meet-bappu-bomma > div:first-child h3 {
-        font-size: 38px !important;
-    }
-
-    #meet-bappu-bomma .bappu-bomma-inner {
-        right: 0;
-        width: 48%;
-    }
-
-    #meet-bappu-bomma .bappu-bomma-portrait {
-        max-height: 78vh;
-    }
-}
-/* LABEL BACKGROUND - PREVENT EDGE CUTTING */
-/* RESTORE LABEL BACKGROUND */
-#meet-bappu-bomma > div:first-child {
-    background-image: url("../assets/images/bgfortxt.png") !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: 125% auto !important;
-
-    width: 65% !important;
-    min-height: 420px !important;
-    padding: 35px 20px !important;
-    box-sizing: border-box;
-    overflow: visible !important;
+#meet-bappu-bomma .bb-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 36px;
 }
 
-/* MOVE ONLY THE TEXT DOWN */
-/* MOVE ONLY TEXT DOWN */
-#meet-bappu-bomma > div:first-child h1,
-#meet-bappu-bomma > div:first-child h2,
-#meet-bappu-bomma > div:first-child h3 {
-    position: relative !important;
-    top: 30px !important;
+/* ---------- the arch ---------- */
+
+#meet-bappu-bomma .bb-arch {
+  --arch-w: min(78vw, 300px);
+  position: relative;
+  width: var(--arch-w);
+  height: calc(var(--arch-w) * 1.5);
+  border: 2px solid var(--c-gold);
+  border-radius: calc(var(--arch-w) / 2) calc(var(--arch-w) / 2) 22px 22px;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 30%, rgba(255, 247, 236, 0.95), transparent 70%),
+    linear-gradient(180deg, #f9cddb 0%, #fbe0e3 55%, #fdeee6 100%);
+  box-shadow:
+    0 22px 44px rgba(125, 47, 85, 0.20),
+    inset 0 0 0 6px rgba(255, 248, 239, 0.55);
 }
-/* MOVE ONLY THE TEXT DOWN */
-#meet-bappu-bomma > div:first-child h1,
-#meet-bappu-bomma > div:first-child h2,
-#meet-bappu-bomma > div:first-child h3 {
-    transform: translateY(70px) !important;
+
+/* fine inner gold line */
+#meet-bappu-bomma .bb-arch::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(207, 167, 98, 0.65);
+  border-radius: calc(var(--arch-w) / 2 - 9px) calc(var(--arch-w) / 2 - 9px) 14px 14px;
+  pointer-events: none;
 }
-/* INCREASE WALLPAPER SIZE - BAPPU BOMMA */
-#meet-bappu-bomma {
-    background-size: 140% auto !important;
+
+/* the ground she stands on */
+#meet-bappu-bomma .bb-arch::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 3%;
+  height: 7%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(125, 47, 85, 0.24), transparent 70%);
+  pointer-events: none;
+}
+
+#meet-bappu-bomma .bb-halo {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  width: 82%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 240, 196, 0.95) 0%, rgba(255, 240, 196, 0) 66%);
+  pointer-events: none;
+}
+
+#meet-bappu-bomma .bb-cutout {
+  position: absolute;
+  left: 50%;
+  bottom: 3.5%;
+  z-index: 1;
+  display: block;
+  width: auto;
+  max-width: none;
+  height: 92%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 8px 10px rgba(125, 47, 85, 0.22));
+}
+
+/* drifting petals */
+#meet-bappu-bomma .bb-petal {
+  position: absolute;
+  z-index: 3;
+  width: 20px;
+  height: auto;
+  opacity: 0.9;
+  pointer-events: none;
+  animation: bb-drift 6s ease-in-out infinite;
+}
+
+#meet-bappu-bomma .bb-petal--1 { top: 6%;  left: -10px;  animation-delay: 0s; }
+#meet-bappu-bomma .bb-petal--2 { top: 30%; right: -12px; width: 16px; animation-delay: -2s; }
+#meet-bappu-bomma .bb-petal--3 { top: 58%; left: -14px;  width: 15px; animation-delay: -4s; }
+#meet-bappu-bomma .bb-petal--4 { top: 12%; right: 10px;  width: 13px; animation-delay: -1s; }
+
+@keyframes bb-drift {
+  0%, 100% { transform: translate(0, 0) rotate(-12deg); }
+  50%      { transform: translate(6px, 14px) rotate(24deg); }
+}
+
+/* tiny Nyra, pointing at big Nyra */
+#meet-bappu-bomma .bb-tiny {
+  position: absolute;
+  right: -30px;
+  bottom: -6px;
+  z-index: 4;
+  display: block;
+  line-height: 0;
+}
+
+#meet-bappu-bomma .bb-tiny img {
+  display: block;
+  width: auto;
+  height: 76px;
+  max-width: none;
+  transform-origin: 50% 100%;
+  animation: bb-sway 3.4s ease-in-out infinite;
+}
+
+#meet-bappu-bomma .bb-tiny-bubble {
+  position: absolute;
+  right: 62%;
+  bottom: 58%;
+  padding: 3px 10px 4px;
+  border: 1px solid var(--c-gold);
+  border-radius: 14px 14px 2px 14px;
+  background: var(--c-ivory);
+  color: var(--c-raspberry-deep);
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+@keyframes bb-sway {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50%      { transform: rotate(2.5deg); }
+}
+
+/* ---------- polaroid trail (mobile: swipeable row) ---------- */
+
+#meet-bappu-bomma .bb-trail {
+  display: flex;
+  align-self: stretch;
+  gap: 18px;
+  margin: 18px -20px 0;
+  padding: 30px 28px 34px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 28px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+#meet-bappu-bomma .bb-trail::-webkit-scrollbar {
+  display: none;
+}
+
+#meet-bappu-bomma .bb-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 164px;
+  margin: 0;
+  padding: 9px 9px 0;
+  border-radius: 3px;
+  background: var(--c-ivory);
+  box-shadow:
+    0 10px 24px rgba(125, 47, 85, 0.20),
+    0 1px 3px rgba(125, 47, 85, 0.14);
+  scroll-snap-align: center;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+#meet-bappu-bomma .bb-card--1 { --tilt: -3deg; }
+#meet-bappu-bomma .bb-card--2 { --tilt: 2.5deg; }
+#meet-bappu-bomma .bb-card--3 { --tilt: -2deg; }
+#meet-bappu-bomma .bb-card--4 { --tilt: 3deg; }
+
+#meet-bappu-bomma .bb-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--c-blush);
+}
+
+#meet-bappu-bomma .bb-card figcaption {
+  padding: 9px 4px 12px;
+  color: var(--c-raspberry-deep);
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.3;
+}
+
+/* washi tape */
+#meet-bappu-bomma .bb-tape {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  z-index: 2;
+  width: 62px;
+  height: 20px;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(244, 191, 208, 0.88) 0 6px,
+    rgba(255, 248, 239, 0.72) 6px 12px
+  );
+  box-shadow: 0 1px 2px rgba(125, 47, 85, 0.12);
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+#meet-bappu-bomma .bb-card:nth-child(even) .bb-tape {
+  transform: translateX(-50%) rotate(5deg);
+}
+
+/* ---------- footer line ---------- */
+
+#meet-bappu-bomma .bb-journey {
+  margin: 6px 0 0;
+  color: var(--c-ink-muted);
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 2vw, 18px);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+#meet-bappu-bomma .bb-more {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 2px;
+  border-bottom: 1px solid var(--c-gold);
+  color: var(--c-raspberry);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+#meet-bappu-bomma .bb-more:hover,
+#meet-bappu-bomma .bb-more:focus-visible {
+  color: var(--c-raspberry-deep);
+}
+
+/* ---------- entrance (only when JS marked the section) ---------- */
+
+#meet-bappu-bomma.bb-js .bb-arch {
+  opacity: 0;
+  transform: translateY(18px) scale(0.97);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+#meet-bappu-bomma.bb-js .bb-card {
+  opacity: 0;
+  transform: translateY(26px) rotate(0deg);
+  transition:
+    opacity 0.6s ease calc(0.25s + var(--i, 0) * 0.14s),
+    transform 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.2) calc(0.25s + var(--i, 0) * 0.14s);
+}
+
+#meet-bappu-bomma.bb-js .bb-tiny {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.9s;
+}
+
+#meet-bappu-bomma.bb-js.is-in .bb-arch {
+  opacity: 1;
+  transform: none;
+}
+
+#meet-bappu-bomma.bb-js.is-in .bb-card {
+  opacity: 1;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+#meet-bappu-bomma.bb-js.is-in .bb-tiny {
+  opacity: 1;
+}
+
+/* ---------- desktop: photos fan out beside the arch ---------- */
+
+@media (min-width: 900px) {
+  #meet-bappu-bomma .bb-stage {
+    display: grid;
+    grid-template-columns: 1fr 360px 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 44px;
+    row-gap: 44px;
+    align-items: center;
+    margin-top: 44px;
+  }
+
+  #meet-bappu-bomma .bb-arch {
+    --arch-w: 360px;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  #meet-bappu-bomma .bb-tiny {
+    right: -44px;
+  }
+
+  #meet-bappu-bomma .bb-tiny img {
+    height: 92px;
+  }
+
+  #meet-bappu-bomma .bb-trail {
+    display: contents;
+  }
+
+  #meet-bappu-bomma .bb-card {
+    width: 204px;
+    padding: 11px 11px 0;
+  }
+
+  #meet-bappu-bomma .bb-card figcaption {
+    font-size: 16px;
+  }
+
+  #meet-bappu-bomma .bb-card--1 { grid-column: 1; grid-row: 1; justify-self: end;   --tilt: -5deg; margin-right: 24px; }
+  #meet-bappu-bomma .bb-card--2 { grid-column: 1; grid-row: 2; justify-self: start; --tilt: 4deg;  margin-left: 18px; }
+  #meet-bappu-bomma .bb-card--3 { grid-column: 3; grid-row: 1; justify-self: start; --tilt: 5deg;  margin-left: 24px; }
+  #meet-bappu-bomma .bb-card--4 { grid-column: 3; grid-row: 2; justify-self: end;   --tilt: -4deg; margin-right: 18px; }
+}
+
+/* ---------- reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  #meet-bappu-bomma .bb-petal,
+  #meet-bappu-bomma .bb-tiny img {
+    animation: none !important;
+  }
+
+  #meet-bappu-bomma.bb-js .bb-arch,
+  #meet-bappu-bomma.bb-js .bb-card,
+  #meet-bappu-bomma.bb-js .bb-tiny {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  #meet-bappu-bomma.bb-js .bb-arch {
+    transform: none !important;
+  }
+
+  #meet-bappu-bomma.bb-js .bb-card {
+    transform: rotate(var(--tilt, 0deg)) !important;
+  }
 }

@@ -193,7 +193,6 @@ p {
 .sd-title,
 .sd-card-title,
 .sd-result-title,
-.sd-result-date,
 .sd-countdown-title,
 .venue-heading h2,
 .venue-label,
@@ -203,7 +202,7 @@ p {
 .gallery-heading h2,
 .rsvp-card h2,
 .nyra-footer h2,
-#meet-bappu-bomma h3 {
+#meet-bappu-bomma .bb-name {
   font-kerning: normal;
   font-variant-ligatures: common-ligatures contextual;
   letter-spacing: 0 !important;

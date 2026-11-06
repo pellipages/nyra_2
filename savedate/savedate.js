@@ -171,14 +171,11 @@
     const size = Math.max(1, Math.round(rect.width || 150));
     const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
 
+    // The canvas is drawn and scratched in real device pixels.
+    // (Patch 8: it used to also scale the context by the pixel ratio, which
+    // made scratches land up-left of the finger on every phone screen.)
     canvas.width = Math.round(size * pixelRatio);
     canvas.height = Math.round(size * pixelRatio);
-
-    const context = canvas.getContext("2d");
-
-    if (context) {
-      context.scale(pixelRatio, pixelRatio);
-    }
   }
 
   function drawGoldCoating(context, canvas) {
@@ -244,8 +241,17 @@
 
     updateScratchHint(section);
 
+    // Patch 7: let Tiny Nyra (tiny-nyra.js) react to each reveal.
+    document.dispatchEvent(
+      new CustomEvent("sd:coin-revealed", { detail: { coin, section } })
+    );
+
     if (allRevealed) {
       revealDateAndStartCountdown(section);
+
+      document.dispatchEvent(
+        new CustomEvent("sd:all-revealed", { detail: { section } })
+      );
     }
   }
 
@@ -322,12 +328,12 @@
 
       petal.style.setProperty(
         "--petal-duration",
-        `${6 + Math.random() * 8}s`
+        `${3.5 + Math.random() * 3.5}s`
       );
 
       petal.style.setProperty(
         "--petal-delay",
-        `${Math.random() * 8}s`
+        `${Math.random() * 1.2}s`
       );
 
       petal.style.setProperty(

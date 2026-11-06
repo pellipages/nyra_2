@@ -1,20 +1,85 @@
-﻿
-<section class="content-section" id="meet-bappu-bomma">
+<section class="content-section" id="meet-bappu-bomma" aria-labelledby="bb-title">
 
-    <div class="bappu-bomma-text">
-        <h1>Meet Our Little</h1>
+  <div class="bb-inner">
 
-        <h2>బాపు బొమ్మ</h2>
+    <header class="bb-head">
+      <p class="bb-eyebrow">Meet our little</p>
+      <h2 class="bb-telugu" id="bb-title" lang="te">బాపు బొమ్మ</h2>
+      <p class="bb-name">Nyra</p>
+      <p class="bb-lede">
+        In Telugu homes, “Bapu bomma” is what we call a girl as graceful as
+        one of the artist Bapu’s paintings. For us, that’s our Nyra.
+      </p>
+    </header>
 
-        <h3>Nyra</h3>
-    </div>
+    <div class="bb-stage">
 
-    <div class="bappu-bomma-inner">
-        <img
+      <!-- The star: Nyra in an arch, like a framed Bapu painting -->
+      <div class="bb-arch">
+        <span class="bb-halo" aria-hidden="true"></span>
+
+        <picture>
+          <source srcset="assets/images/bappu/nyra-cutout.webp" type="image/webp">
+          <img
+            class="bb-cutout"
             src="assets/images/nyra-bappu-bomma.png"
-            alt="Nyra"
-            class="bappu-bomma-portrait"
-        >
+            width="560"
+            height="1332"
+            alt="Nyra in her peach half saree with a magenta and gold border"
+          >
+        </picture>
+
+        <!-- Petals drifting around the arch -->
+        <img class="bb-petal bb-petal--1" src="assets/images/pink-petal.png" alt="" aria-hidden="true">
+        <img class="bb-petal bb-petal--2" src="assets/images/pink-petal.png" alt="" aria-hidden="true">
+        <img class="bb-petal bb-petal--3" src="assets/images/pink-petal.png" alt="" aria-hidden="true">
+        <img class="bb-petal bb-petal--4" src="assets/images/pink-petal.png" alt="" aria-hidden="true">
+
+        <!-- Tiny Nyra points at big Nyra -->
+        <span class="bb-tiny" aria-hidden="true">
+          <span class="bb-tiny-bubble">that’s me!</span>
+          <img src="assets/images/nyra-mini.png" alt="">
+        </span>
+      </div>
+
+      <!-- Her story, in her own photos -->
+      <div class="bb-trail">
+
+        <figure class="bb-card bb-card--1" style="--i:0">
+          <i class="bb-tape" aria-hidden="true"></i>
+          <img src="assets/images/bappu/then-1.jpg" width="480" height="600" loading="lazy"
+               alt="Nyra as a newborn, wrapped in a soft blanket and a tiny hat">
+          <figcaption>Where our story began</figcaption>
+        </figure>
+
+        <figure class="bb-card bb-card--2" style="--i:1">
+          <i class="bb-tape" aria-hidden="true"></i>
+          <img src="assets/images/bappu/then-2.jpg" width="480" height="600" loading="lazy"
+               alt="Nyra as a baby in a fluffy pink monster costume">
+          <figcaption>Our little pink monster</figcaption>
+        </figure>
+
+        <figure class="bb-card bb-card--3" style="--i:2">
+          <i class="bb-tape" aria-hidden="true"></i>
+          <img src="assets/images/bappu/then-3.jpg" width="480" height="600" loading="lazy"
+               alt="Nyra smiling in a pink silk dress with puffed sleeves">
+          <figcaption>Pure sunshine in pink silk</figcaption>
+        </figure>
+
+        <figure class="bb-card bb-card--4" style="--i:3">
+          <i class="bb-tape" aria-hidden="true"></i>
+          <img src="assets/images/bappu/then-4.jpg" width="480" height="600" loading="lazy"
+               alt="Nyra draped in a colourful saree, posing on a staircase">
+          <figcaption>Grace in every fold</figcaption>
+        </figure>
+
+      </div>
+
     </div>
+
+    <p class="bb-journey">From her very first day to her half saree day</p>
+    <a class="bb-more" href="#nyra-gallery">More little moments below <span aria-hidden="true">↓</span></a>
+
+  </div>
 
 </section>
