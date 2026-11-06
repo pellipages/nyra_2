@@ -1,0 +1,137 @@
+
+.rsvp-section {
+    position: relative;
+    width: 100%;
+    padding: 90px 20px;
+    background-image: url("../assets/images/half-saree-wallpaper.png");
+    background-size: 120% auto;
+    background-position: center;
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rsvp-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 45px;
+    background: rgba(255, 250, 247, 0.94);
+    border: 2px solid #c5a16b;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(80, 40, 50, 0.15);
+}
+
+.rsvp-small {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #95636d;
+    margin-bottom: 12px;
+}
+
+.rsvp-card h2 {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    font-weight: normal;
+    color: #713747;
+    margin-bottom: 12px;
+}
+
+.rsvp-description {
+    text-align: center;
+    color: #80505a;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+#rsvpForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#rsvpForm > label {
+    color: #713747;
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+#rsvpForm input[type="text"],
+#rsvpForm input[type="number"],
+#rsvpForm textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8b5b5;
+    border-radius: 6px;
+    background: #fffdfb;
+    color: #603b43;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+#rsvpForm input:focus,
+#rsvpForm textarea:focus {
+    border-color: #a16b75;
+}
+
+#rsvpForm textarea {
+    resize: vertical;
+}
+
+.attendance-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #80505a;
+}
+
+.attendance-options label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+#rsvpForm button {
+    margin-top: 15px;
+    padding: 15px;
+    background: #814957;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+#rsvpForm button:hover {
+    background: #603440;
+}
+
+#rsvpMessage {
+    text-align: center;
+    color: #713747;
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    .rsvp-section {
+        padding: 55px 15px;
+        background-size: 130% auto;
+    }
+
+    .rsvp-card {
+        padding: 28px 20px;
+    }
+
+    .rsvp-card h2 {
+        font-size: 45px;
+    }
+
+    .attendance-options {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

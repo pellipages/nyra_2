@@ -1,0 +1,411 @@
+
+/* =================================
+   NYRA'S FLOATING GALLERY
+================================= */
+
+.gallery-section {
+    position: relative;
+    width: 100%;
+    min-height: 950px;
+    padding: 75px 5% 50px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background-image: url("../assets/images/half-saree-wallpaper.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 120% auto;
+}
+
+/* GALLERY HEADING */
+
+.gallery-heading {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.gallery-heading p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    letter-spacing: 3px;
+    color: #80505A;
+    margin: 0 0 8px;
+}
+
+.gallery-heading h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 76px;
+    font-weight: 400;
+    color: #713747;
+    margin: 0;
+}
+
+.gallery-heading span {
+    display: block;
+    font-size: 30px;
+    color: #B18A55;
+    margin-top: 8px;
+}
+
+/* FLOATING PHOTO CONTAINER */
+
+.floating-gallery {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 650px;
+    margin: 10px auto 0;
+}
+
+/* COMMON PHOTO STYLE */
+
+.floating-photo {
+    position: absolute;
+    overflow: hidden;
+
+    border: 5px solid rgba(255, 250, 247, 0.95);
+    outline: 1px solid #C5A16B;
+    border-radius: 5px;
+
+    box-shadow: 0 15px 35px rgba(75, 40, 45, 0.22);
+
+    cursor: pointer;
+
+    animation: floatPhoto 6s ease-in-out infinite;
+
+    transition: box-shadow 0.4s ease;
+}
+
+.floating-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.floating-photo:hover {
+    z-index: 10;
+    box-shadow: 0 22px 45px rgba(75, 40, 45, 0.32);
+}
+
+.floating-photo:hover img {
+    transform: scale(1.07);
+}
+
+/* =================================
+   DESKTOP PHOTO POSITIONS
+================================= */
+
+/* Main central photo */
+
+.photo-1 {
+    width: 34%;
+    height: 370px;
+    left: 33%;
+    top: 100px;
+    rotate: -2deg;
+    z-index: 5;
+    animation-delay: 0s;
+}
+
+/* Top left */
+
+.photo-2 {
+    width: 23%;
+    height: 235px;
+    left: 17%;
+    top: 65px;
+    rotate: -8deg;
+    z-index: 3;
+    animation-delay: -1s;
+}
+
+/* Top right */
+
+.photo-3 {
+    width: 23%;
+    height: 235px;
+    right: 17%;
+    top: 65px;
+    rotate: 8deg;
+    z-index: 4;
+    animation-delay: -2s;
+}
+
+/* Bottom left */
+
+.photo-4 {
+    width: 23%;
+    height: 235px;
+    left: 13%;
+    top: 300px;
+    rotate: 6deg;
+    z-index: 4;
+    animation-delay: -3s;
+}
+
+/* Bottom right */
+
+.photo-5 {
+    width: 23%;
+    height: 235px;
+    right: 13%;
+    top: 300px;
+    rotate: -6deg;
+    z-index: 4;
+    animation-delay: -1.5s;
+}
+
+/* Lower center left */
+
+.photo-6 {
+    width: 22%;
+    height: 210px;
+    left: 28%;
+    top: 390px;
+    rotate: -5deg;
+    z-index: 6;
+    animation-delay: -2.5s;
+}
+
+/* Lower center right */
+
+.photo-7 {
+    width: 22%;
+    height: 210px;
+    right: 28%;
+    top: 390px;
+    rotate: 5deg;
+    z-index: 6;
+    animation-delay: -3.5s;
+}
+
+/* Middle left */
+
+.photo-8 {
+    width: 20%;
+    height: 205px;
+    left: 3%;
+    top: 210px;
+    rotate: -5deg;
+    z-index: 2;
+    animation-delay: -2s;
+}
+
+/* Middle right */
+
+.photo-9 {
+    width: 20%;
+    height: 205px;
+    right: 3%;
+    top: 210px;
+    rotate: 5deg;
+    z-index: 2;
+    animation-delay: -3s;
+}
+
+/* Bottom center */
+
+.photo-10 {
+    width: 20%;
+    height: 205px;
+    left: 40%;
+    top: 465px;
+    rotate: -2deg;
+    z-index: 7;
+    animation-delay: -4s;
+}
+
+/* =================================
+   FLOATING ANIMATION
+================================= */
+
+@keyframes floatPhoto {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -12px;
+    }
+}
+
+/* =================================
+   FULLSCREEN PHOTO VIEWER
+================================= */
+
+.gallery-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    background: rgba(30, 15, 20, 0.95);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.gallery-lightbox.active {
+    display: flex;
+}
+
+.gallery-lightbox img {
+    max-width: 85%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 4px solid #fffaf7;
+}
+
+.gallery-lightbox button {
+    position: absolute;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+.gallery-close {
+    top: 20px;
+    right: 35px;
+}
+
+.gallery-prev {
+    left: 25px;
+}
+
+.gallery-next {
+    right: 25px;
+}
+
+/* =================================
+   MOBILE RESPONSIVE GALLERY
+================================= */
+
+@media (max-width: 700px) {
+
+    .gallery-section {
+        min-height: 950px;
+        padding: 65px 4% 40px;
+        background-size: 130% auto;
+    }
+
+    .gallery-heading p {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+
+    .gallery-heading h2 {
+        font-size: 57px;
+    }
+
+    .floating-gallery {
+        width: 100%;
+        height: 780px;
+        margin-top: 15px;
+    }
+
+    .photo-1 {
+        width: 48%;
+        height: 250px;
+        left: 26%;
+        top: 130px;
+    }
+
+    .photo-2 {
+        width: 36%;
+        height: 155px;
+        left: 9%;
+        top: 60px;
+    }
+
+    .photo-3 {
+        width: 36%;
+        height: 155px;
+        right: 9%;
+        top: 60px;
+    }
+
+    .photo-4 {
+        width: 37%;
+        height: 165px;
+        left: 7%;
+        top: 340px;
+    }
+
+    .photo-5 {
+        width: 37%;
+        height: 165px;
+        right: 7%;
+        top: 340px;
+    }
+
+    .photo-6 {
+        width: 35%;
+        height: 150px;
+        left: 17%;
+        top: 480px;
+    }
+
+    .photo-7 {
+        width: 35%;
+        height: 150px;
+        right: 17%;
+        top: 480px;
+    }
+
+    .photo-8 {
+        width: 32%;
+        height: 140px;
+        left: 1%;
+        top: 250px;
+        rotate: -6deg;
+    }
+
+    .photo-9 {
+        width: 32%;
+        height: 140px;
+        right: 1%;
+        top: 250px;
+        rotate: 6deg;
+    }
+
+    .photo-10 {
+        width: 34%;
+        height: 145px;
+        left: 33%;
+        top: 565px;
+        rotate: -3deg;
+    }
+
+    /* MOBILE FULLSCREEN VIEWER */
+
+    .gallery-lightbox {
+        padding: 15px;
+    }
+
+    .gallery-lightbox img {
+        max-width: 90%;
+        max-height: 75vh;
+    }
+
+    .gallery-close {
+        top: 15px;
+        right: 15px;
+    }
+
+    .gallery-prev {
+        left: 3px;
+    }
+
+    .gallery-next {
+        right: 3px;
+    }
+}

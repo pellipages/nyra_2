@@ -1,0 +1,732 @@
+
+/* =====================================================
+   NYRA'S HALF SAREE CEREMONY — SAVE THE DATE
+   Complete CSS
+===================================================== */
+
+#save-the-date {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  padding: 65px 18px 75px;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+  color: #794c57;
+  background-image: url("../assets/images/half-saree-wallpaper.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#save-the-date *,
+#save-the-date *::before,
+#save-the-date *::after {
+  box-sizing: border-box;
+}
+
+/* Main content */
+
+#save-the-date .sd-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+#save-the-date .sd-eyebrow {
+  margin: 0 0 12px;
+  color: #a16e7a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#save-the-date .sd-title {
+  margin: 0;
+  color: #814e5b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+#save-the-date .sd-subtitle {
+  max-width: 600px;
+  margin: 15px auto 0;
+  color: #87656b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 2vw, 19px);
+  line-height: 1.7;
+}
+
+/* =====================================================
+   SCRATCH CARD
+===================================================== */
+
+#save-the-date .sd-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 680px;
+  margin: 36px auto 0;
+  padding: 42px 28px;
+  overflow: hidden;
+  border: 2px solid #dfc9ad;
+  border-radius: 12px;
+  background: rgba(255, 251, 247, 0.94);
+  box-shadow: 0 8px 28px rgba(115, 70, 78, 0.08);
+}
+
+#save-the-date .sd-card::before {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #ead9c7;
+  content: "";
+  pointer-events: none;
+}
+
+#save-the-date .sd-card-title {
+  position: relative;
+  margin: 0 0 12px;
+  color: #81505c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(23px, 3.5vw, 30px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+#save-the-date .sd-card-description {
+  position: relative;
+  margin: 0 auto 28px;
+  color: #96767c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   THREE EQUAL COINS
+
+   Each coin is exactly the same size on desktop.
+   Grid columns keep them evenly spaced.
+===================================================== */
+
+#save-the-date .sd-coins {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: repeat(3, 120px) !important;
+  justify-content: center !important;
+  align-items: start !important;
+  column-gap: 30px !important;
+  row-gap: 22px !important;
+  width: 100% !important;
+  max-width: 570px !important;
+  margin: 28px auto 0 !important;
+}
+
+/* Coin wrapper */
+
+#save-the-date .sd-coin {
+  position: relative !important;
+  display: block !important;
+  width: 120px !important;
+  height: 120px !important;
+  min-width: 120px !important;
+  min-height: 120px !important;
+  max-width: 120px !important;
+  max-height: 120px !important;
+  flex: none !important;
+  aspect-ratio: 1 / 1 !important;
+  justify-self: center !important;
+  overflow: hidden !important;
+  border: 2px solid #bd9140;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle at 32% 25%, #fff1bd 0%, transparent 35%),
+    linear-gradient(135deg, #f4d88c, #d5aa53 55%, #e9ca7b);
+  box-shadow:
+    0 4px 10px rgba(116, 79, 39, 0.17),
+    inset 0 0 0 4px rgba(255, 242, 194, 0.65),
+    inset 0 0 0 7px rgba(166, 119, 46, 0.22);
+}
+
+/* Content inside each coin */
+
+#save-the-date .sd-coin-reveal {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 8px !important;
+  text-align: center !important;
+  pointer-events: none !important;
+}
+
+#save-the-date .sd-coin-reveal strong {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #794b36;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px !important;
+  font-weight: 400;
+  line-height: 1.1 !important;
+}
+
+#save-the-date .sd-coin-reveal span {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #794b36;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 1px;
+}
+
+/* Scratch canvas */
+
+#save-the-date .sd-scratch {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  cursor: grab;
+  touch-action: none;
+}
+
+#save-the-date .sd-scratch:active {
+  cursor: grabbing;
+}
+
+#save-the-date .sd-coin.is-revealed .sd-scratch {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.45s ease;
+}
+
+/* If the labels are separate from the coin, align them */
+
+#save-the-date .sd-coin-label,
+#save-the-date .sd-label {
+  display: block;
+  width: 100%;
+  margin: 10px 0 0;
+  color: #814e5b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* Scratch instructions */
+
+#save-the-date .sd-scratch-hint {
+  position: relative;
+  margin: 24px auto 0;
+  min-height: 25px;
+  color: #a16f7b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   REVEALED DATE
+===================================================== */
+
+#save-the-date #sd-date-result[hidden],
+#save-the-date #sd-countdown[hidden] {
+  display: none !important;
+}
+
+#save-the-date #sd-date-result {
+  position: relative;
+  width: 100%;
+  margin: 30px auto 0;
+  text-align: center;
+  animation: sd-fade-up 0.7s ease both;
+}
+
+#save-the-date .sd-result-title {
+  margin: 0 0 18px;
+  color: #814e5b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 4vw, 31px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+#save-the-date .sd-result-date {
+  margin: 0;
+  color: #814e5b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 4vw, 38px);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+#save-the-date .sd-result-message {
+  margin: 18px auto 0;
+  color: #99777b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(14px, 2.2vw, 18px);
+  line-height: 1.8;
+}
+
+/* =====================================================
+   COUNTDOWN — FOUR SEPARATE BOXES
+===================================================== */
+
+#save-the-date #sd-countdown {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 36px auto 0;
+  text-align: center;
+  animation: sd-fade-up 0.7s ease both;
+}
+
+#save-the-date .sd-countdown-title {
+  margin: 0 0 22px;
+  color: #814e5b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+}
+
+#save-the-date .sd-countdown-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 540px !important;
+  margin: 0 auto !important;
+}
+
+#save-the-date .sd-countdown-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 95px !important;
+  margin: 0 !important;
+  padding: 15px 5px !important;
+  border: 1px solid #dfc4ae !important;
+  border-radius: 6px !important;
+  background: rgba(255, 250, 246, 0.88) !important;
+  box-shadow: 0 3px 10px rgba(115, 70, 78, 0.05);
+  text-align: center !important;
+}
+
+#save-the-date .sd-countdown-item strong {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #814e5b !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(25px, 4vw, 35px) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  font-variant-numeric: tabular-nums;
+}
+
+#save-the-date .sd-countdown-item span {
+  display: block !important;
+  width: 100% !important;
+  margin: 8px 0 0 !important;
+  padding: 0 !important;
+  color: #a4777d !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 1px !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+/* Closing message */
+
+#save-the-date .sd-closing,
+#save-the-date .sd-footer-message {
+  max-width: 600px;
+  margin: 28px auto 0;
+  color: #814e5b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(16px, 2.7vw, 23px);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* =====================================================
+   FALLING PETALS
+===================================================== */
+
+#save-the-date .sd-petal-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#save-the-date .sd-falling-petal {
+  position: absolute;
+  top: -65px;
+  left: var(--petal-left);
+  display: block;
+  width: var(--petal-width, 22px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: sd-petal-fall var(--petal-duration, 8s)
+    var(--petal-delay, 0s) linear infinite;
+}
+
+@keyframes sd-petal-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -40px, 0) rotate(0deg);
+  }
+
+  10% {
+    opacity: var(--petal-opacity, 0.8);
+  }
+
+  50% {
+    opacity: var(--petal-opacity, 0.8);
+    transform:
+      translate3d(var(--petal-sway, 30px), 50vh, 0)
+      rotate(220deg);
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(var(--petal-end-sway, -20px), 110vh, 0)
+      rotate(480deg);
+  }
+}
+
+/* Entrance animation */
+
+@keyframes sd-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 650px) {
+  #save-the-date {
+    padding: 50px 15px 60px;
+  }
+
+  #save-the-date .sd-card {
+    padding: 35px 20px;
+  }
+
+  #save-the-date .sd-coins {
+    grid-template-columns: repeat(3, 100px) !important;
+    column-gap: 18px !important;
+  }
+
+  #save-the-date .sd-coin {
+    width: 100px !important;
+    height: 100px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    max-width: 100px !important;
+    max-height: 100px !important;
+  }
+
+  #save-the-date .sd-coin-reveal strong {
+    font-size: 25px !important;
+  }
+
+  #save-the-date .sd-coin-reveal span {
+    font-size: 11px !important;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+  #save-the-date {
+    padding: 42px 12px 48px;
+  }
+
+  #save-the-date .sd-card {
+    margin-top: 25px;
+    padding: 30px 13px;
+  }
+
+  #save-the-date .sd-card::before {
+    inset: 7px;
+  }
+
+  #save-the-date .sd-coins {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    max-width: 100% !important;
+    padding: 0 3px;
+  }
+
+  #save-the-date .sd-coin {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  #save-the-date .sd-coin-reveal {
+    padding: 5px !important;
+    gap: 3px !important;
+  }
+
+  #save-the-date .sd-coin-reveal strong {
+    font-size: clamp(19px, 6vw, 25px) !important;
+  }
+
+  #save-the-date .sd-coin-reveal span {
+    font-size: clamp(9px, 2.8vw, 11px) !important;
+    letter-spacing: 0.5px;
+  }
+
+  #save-the-date .sd-coin-label,
+  #save-the-date .sd-label {
+    font-size: 12px;
+  }
+
+  #save-the-date #sd-countdown {
+    margin-top: 28px;
+  }
+
+  #save-the-date .sd-countdown-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+  }
+
+  #save-the-date .sd-countdown-item {
+    min-height: 72px !important;
+    padding: 10px 2px !important;
+  }
+
+  #save-the-date .sd-countdown-item strong {
+    font-size: clamp(19px, 5vw, 23px) !important;
+  }
+
+  #save-the-date .sd-countdown-item span {
+    margin-top: 6px !important;
+    font-size: 8px !important;
+    letter-spacing: 0.3px !important;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  #save-the-date .sd-falling-petal,
+  #save-the-date #sd-date-result,
+  #save-the-date #sd-countdown {
+    animation: none !important;
+  }
+}
+
+/* =========================================
+   COUNTDOWN — CLEAN FOUR-COLUMN LAYOUT
+========================================= */
+
+#save-the-date #sd-countdown {
+  display: block !important;
+  width: 100% !important;
+  max-width: 600px !important;
+  margin: 35px auto 0 !important;
+  padding: 0 12px !important;
+  text-align: center !important;
+}
+
+#save-the-date #sd-countdown .sd-countdown-title {
+  margin: 0 0 24px !important;
+  text-align: center !important;
+}
+
+/* Four equal columns */
+
+#save-the-date #sd-countdown .sd-countdown-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  margin: 0 auto !important;
+}
+
+/* Individual time boxes */
+
+#save-the-date #sd-countdown .sd-countdown-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 95px !important;
+  padding: 14px 4px !important;
+  border: 1px solid #d9bba5 !important;
+  border-radius: 6px !important;
+  background: rgba(255, 250, 246, 0.85) !important;
+  text-align: center !important;
+}
+
+/* Numbers */
+
+#save-the-date #sd-countdown .sd-countdown-item strong {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  color: #814e5b !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(22px, 4vw, 34px) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* DAYS / HOURS / MINUTES / SECONDS */
+
+#save-the-date #sd-countdown .sd-countdown-item span {
+  display: block !important;
+  margin: 8px 0 0 !important;
+  color: #a4777d !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 10px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.08em !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  #save-the-date #sd-countdown .sd-countdown-grid {
+    gap: 6px !important;
+  }
+
+  #save-the-date #sd-countdown .sd-countdown-item {
+    min-height: 76px !important;
+    padding: 10px 2px !important;
+  }
+
+  #save-the-date #sd-countdown .sd-countdown-item strong {
+    font-size: 21px !important;
+  }
+
+  #save-the-date #sd-countdown .sd-countdown-item span {
+    font-size: 8px !important;
+    letter-spacing: 0.02em !important;
+  }
+}
+
+/* ONE FLORAL HANGING — TOP RIGHT CORNER ONLY */
+
+#save-the-date .sd-floral-decor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#save-the-date .sd-floral-hanging.sd-floral-right {
+  position: absolute;
+  top: -80px !important;
+  right: -5px !important;
+  left: auto !important;
+  width: clamp(150px, 20vw, 230px) !important;
+  height: auto !important;
+  max-height: none !important;
+  display: block;
+  margin: 0;
+  object-fit: contain;
+  transform-origin: top center;
+  animation: sd-right-hanging-sway 7s ease-in-out infinite;
+}
+
+@keyframes sd-right-hanging-sway {
+  0%, 100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+/* Keep the section content readable */
+#save-the-date .sd-content {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  #save-the-date .sd-floral-hanging.sd-floral-right {
+    top: -35px !important;
+    right: -8px !important;
+    width: 115px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #save-the-date .sd-floral-hanging {
+    animation: none !important;
+  }
+}

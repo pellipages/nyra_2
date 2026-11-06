@@ -1,0 +1,61 @@
+
+<section class="rsvp-section" id="rsvp">
+  <div class="rsvp-card">
+
+      <p class="rsvp-small">WE WOULD LOVE TO CELEBRATE WITH YOU</p>
+
+      <h2>Kindly Respond</h2>
+
+      <p class="rsvp-description">
+          Please let us know if you can join us
+          for Nyra's special celebration.
+      </p>
+
+      <form id="rsvpForm">
+
+          <label for="guestName">Your Name *</label>
+          <input
+              type="text"
+              id="guestName"
+              placeholder="Enter your full name"
+              required
+          >
+
+          <label>Will you be attending? *</label>
+
+          <div class="attendance-options">
+              <label>
+                  <input type="radio" name="attending" value="Yes" required>
+                  Joyfully Accept
+              </label>
+
+              <label>
+                  <input type="radio" name="attending" value="No">
+                  Regretfully Decline
+              </label>
+          </div>
+
+          <label for="guestCount">Number of Guests *</label>
+          <input
+              type="number"
+              id="guestCount"
+              min="1"
+              max="20"
+              value="1"
+              required
+          >
+
+          <label for="guestMessage">Your Wishes for Nyra</label>
+          <textarea
+              id="guestMessage"
+              placeholder="Write your wishes here..."
+              rows="4"
+          ></textarea>
+
+          <button type="submit">Submit RSVP ♡</button>
+
+          <p id="rsvpMessage"></p>
+
+      </form>
+  </div>
+</section>

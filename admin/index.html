@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nyra | RSVP Admin</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ADMIN LOGIN -->
+    <section id="loginSection" class="login-section">
+
+        <div class="login-card">
+
+            <p class="login-small">NYRA'S HALF SAREE CEREMONY</p>
+
+            <h1>Welcome Back</h1>
+
+            <p>Admin Login</p>
+
+            <form id="loginForm">
+
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+
+                <button type="submit">Login ♡</button>
+
+                <p id="loginMessage"></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="dashboardSection" hidden>
+
+        <header>
+
+            <p>NYRA'S HALF SAREE CEREMONY</p>
+
+            <h1>RSVP Dashboard</h1>
+
+            <span>Guest Responses & Memories</span>
+
+        </header>
+
+
+        <main>
+
+            <div class="top-bar">
+
+                <h2>Guest Overview</h2>
+
+                <div class="dashboard-buttons">
+
+                    <button onclick="loadResponses()">
+                        Refresh Responses ↻
+                    </button>
+
+                    <button onclick="downloadCSV()" class="export-button">
+                        Download Responses ↓
+                    </button>
+
+                    <button id="logoutButton" class="logout-button">
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+            <section class="stats">
+
+                <div class="stat-card">
+                    <span>Total Responses</span>
+                    <h2 id="totalResponses">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <span>Attending</span>
+                    <h2 id="attending">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <span>Not Attending</span>
+                    <h2 id="notAttending">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <span>Total Guests</span>
+                    <h2 id="totalGuests">0</h2>
+                </div>
+
+            </section>
+
+
+            <!-- GUEST RESPONSES -->
+            <section class="responses">
+
+                <h2>Guest Responses</h2>
+
+
+                <!-- SEARCH AND FILTER -->
+                <div class="filter-bar">
+
+                    <input
+                        type="text"
+                        id="guestSearch"
+                        placeholder="Search guest name..."
+                    >
+
+                    <select id="attendanceFilter">
+
+                        <option value="All">All Responses</option>
+
+                        <option value="Yes">Attending</option>
+
+                        <option value="No">Not Attending</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- RSVP TABLE -->
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>#</th>
+
+                                <th>Guest Name</th>
+
+                                <th>Attendance</th>
+
+                                <th>Guests</th>
+
+                                <th>Wishes</th>
+
+                                <th>Submitted On</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="responseTable">
+
+                            <tr>
+                                <td colspan="7">No responses loaded.</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <p id="statusMessage"></p>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer>
+            Made with love for Nyra ♡
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

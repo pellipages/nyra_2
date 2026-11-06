@@ -1,0 +1,514 @@
+
+/* =====================================
+   NYRA — HALF SAREE CEREMONY
+   BLUSH PINK & SAGE GREEN THEME
+===================================== */
+
+:root {
+    --blush: #f4c8c8;
+    --rose: #b96f7d;
+    --deep-rose: #914c5d;
+    --sage: #87977a;
+    --deep-green: #52684d;
+    --ivory: #fff4ea;
+    --gold: #b69a5b;
+    --text: #65483e;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Cormorant Garamond", serif;
+    background: var(--ivory);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+  
+  /* =====================================
+     HERO SECTION
+  ===================================== */
+  
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
+    overflow: hidden;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 55px 24px 115px;
+  
+    background:
+      radial-gradient(
+        ellipse at 50% 45%,
+        rgba(255, 244, 234, 0.98) 0%,
+        rgba(255, 244, 234, 0.78) 45%,
+        transparent 78%
+      ),
+      linear-gradient(
+        145deg,
+        #f8dada,
+        #f3c7c9 48%,
+        #f9dfd6
+      );
+  }
+  
+  /* Background pattern */
+  
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.22;
+  
+    background-image:
+      radial-gradient(
+        circle at center,
+        transparent 12px,
+        var(--rose) 13px,
+        transparent 14px
+      ),
+      radial-gradient(
+        circle at center,
+        transparent 5px,
+        var(--gold) 6px,
+        transparent 7px
+      );
+  
+    background-size: 64px 64px, 32px 32px;
+    background-position: 0 0, 16px 16px;
+  }
+  
+  /* =====================================
+     DECORATIVE DETAILS
+  ===================================== */
+  
+  .top-decoration {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: 100%;
+    padding: 0 8%;
+  
+    display: flex;
+    justify-content: space-between;
+  
+    color: var(--sage);
+    opacity: 0.7;
+    font-size: 30px;
+    pointer-events: none;
+  }
+  
+  .bottom-floral {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    color: var(--deep-green);
+    font-size: 54px;
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  
+  /* =====================================
+     HERO TEXT
+  ===================================== */
+  
+  .hero-content {
+    position: relative;
+    z-index: 3;
+  
+    width: min(100%, 760px);
+    text-align: center;
+  
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  
+  .eyebrow {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(12px, 1.8vw, 16px);
+    font-weight: 500;
+    letter-spacing: 5px;
+  
+    color: var(--deep-green);
+    margin-bottom: 20px;
+  }
+  
+  .gold-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+  
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  
+  .gold-divider span {
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: var(--gold);
+  }
+  
+  .gold-divider b {
+    font-size: 22px;
+    font-weight: 400;
+  }
+  
+  .invitation-line {
+    font-size: clamp(18px, 2.6vw, 24px);
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(38px, 6vw, 66px);
+    font-weight: 400;
+    line-height: 1.18;
+  
+    color: var(--deep-rose);
+    text-shadow: 0 2px 0 rgba(255, 244, 234, 0.8);
+  }
+  
+  h1 span {
+    display: block;
+  
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(54px, 8vw, 92px);
+    font-weight: 400;
+    line-height: 1.2;
+  
+    color: var(--rose);
+  }
+  
+  .hero-subtitle {
+    margin-top: 19px;
+  
+    font-size: clamp(18px, 2.6vw, 25px);
+    font-style: italic;
+    line-height: 1.4;
+  
+    color: var(--deep-green);
+  }
+  
+  .bottom-divider {
+    margin-top: 22px;
+    color: var(--gold);
+    font-size: 17px;
+    letter-spacing: 3px;
+  }
+  
+  /* =====================================
+     BABY CHARACTER
+  ===================================== */
+  
+  .baby-character {
+    position: absolute;
+    z-index: 2;
+  
+    width: clamp(105px, 19vw, 225px);
+    height: auto;
+    object-fit: contain;
+  
+    left: 0;
+    bottom: 4%;
+  
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-120%);
+  
+    pointer-events: none;
+  }
+  
+  /* =====================================
+     YOUNG GIRL CHARACTER
+  ===================================== */
+  
+  .young-character {
+    position: absolute;
+    z-index: 2;
+  
+    width: clamp(140px, 24vw, 280px);
+    height: auto;
+    object-fit: contain;
+  
+    right: 4%;
+    bottom: 5%;
+  
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(120%);
+  
+    pointer-events: none;
+  }
+  
+  /* =====================================
+     SCROLL INDICATOR
+  ===================================== */
+  
+  .scroll-hint {
+    position: absolute;
+    z-index: 4;
+  
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  
+    color: var(--deep-green);
+    font-family: "Playfair Display", serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+  
+    opacity: 0;
+  }
+  
+  .scroll-arrow {
+    font-size: 20px;
+    color: var(--rose);
+  }
+  
+  /* =====================================
+     ANIMATION 1 — SLOW BABY CRAWLING
+  ===================================== */
+  
+  /* Crawls across the screen over 10 seconds */
+  
+  .hero.is-loaded .baby-character {
+    visibility: visible;
+    animation: babyCrawl 10s linear 0.5s both;
+  }
+  
+  @keyframes babyCrawl {
+    0% {
+      opacity: 0;
+      transform: translateX(-120%);
+    }
+  
+    8% {
+      opacity: 1;
+    }
+  
+    92% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translateX(calc(100vw + 120%));
+    }
+  }
+  
+  /* =====================================
+     ANIMATION 2 — YOUNG GIRL ARRIVES
+  ===================================== */
+  
+  /* Starts after the baby finishes crawling */
+  
+  .hero.is-loaded .young-character {
+    visibility: visible;
+    animation: girlArrives 1.5s ease-out 10.5s both;
+  }
+  
+  @keyframes girlArrives {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  
+    70% {
+      opacity: 1;
+      transform: translateX(-8px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* =====================================
+     ANIMATION 3 — INVITATION TEXT
+  ===================================== */
+  
+  /* Text appears after the girl enters */
+  
+  .hero.is-loaded .hero-content {
+    animation: textAppears 1.4s ease-out 11.5s forwards;
+  }
+  
+  @keyframes textAppears {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Scroll hint appears last */
+  
+  .hero.is-loaded .scroll-hint {
+    animation: hintAppears 0.8s ease 13s forwards;
+  }
+  
+  @keyframes hintAppears {
+    to {
+      opacity: 0.8;
+    }
+  }
+  
+  /* =====================================
+     TABLET
+  ===================================== */
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 55px 20px 120px;
+    }
+  
+    .hero-content {
+      max-width: 600px;
+    }
+  
+    .young-character {
+      right: 0;
+      width: clamp(125px, 27vw, 210px);
+    }
+  
+    .baby-character {
+      width: clamp(100px, 23vw, 175px);
+    }
+  }
+  
+  /* =====================================
+     MOBILE
+  ===================================== */
+  
+  @media (max-width: 480px) {
+    .hero {
+      padding: 45px 18px 150px;
+    }
+  
+    .top-decoration {
+      top: 12px;
+      padding: 0 6%;
+      font-size: 23px;
+    }
+  
+    .eyebrow {
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+  
+    .gold-divider {
+      margin-bottom: 17px;
+    }
+  
+    .gold-divider span {
+      width: 38px;
+    }
+  
+    .invitation-line {
+      font-size: 18px;
+    }
+  
+    h1 {
+      font-size: clamp(34px, 10vw, 46px);
+    }
+  
+    h1 span {
+      font-size: clamp(51px, 15vw, 70px);
+    }
+  
+    .hero-subtitle {
+      font-size: 19px;
+      margin-top: 14px;
+    }
+  
+    .bottom-divider {
+      margin-top: 16px;
+    }
+  
+    .baby-character {
+      width: 125px;
+      bottom: 3%;
+    }
+  
+    .young-character {
+      width: 165px;
+      right: -5px;
+      bottom: 5%;
+    }
+  
+    .bottom-floral {
+      height: 45px;
+      font-size: 36px;
+    }
+  
+    .scroll-hint {
+      bottom: 8px;
+      font-size: 8px;
+    }
+  }
+  
+  /* =====================================
+     ACCESSIBILITY
+  ===================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .hero.is-loaded .baby-character {
+      animation: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+  
+    .hero.is-loaded .young-character {
+      animation: none;
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+    }
+  
+    .hero.is-loaded .hero-content {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  
+    .hero.is-loaded .scroll-hint {
+      animation: none;
+      opacity: 0.8;
+    }
+  }
+  

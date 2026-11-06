@@ -1,0 +1,148 @@
+﻿
+/* BAPPU BOMMA SECTION */
+#meet-bappu-bomma {
+    position: relative !important;
+    min-height: 100vh !important;
+    width: 100%;
+    overflow: hidden;
+
+    background-image: url("../assets/images/half-saree-wallpaper.png") !important;
+    background-repeat: repeat;
+    background-position: center center !important;
+    background-size: 120% auto !important;
+
+    display: block !important;
+}
+
+/* TEXT CONTAINER */
+#meet-bappu-bomma > div:first-child {
+    position: absolute !important;
+    left: 1% !important;
+    top: 58% !important;
+    transform: translateY(-50%) !important;
+    width: 60% !important;
+    text-align: center !important;
+    z-index: 10 !important;
+}
+
+/* ENGLISH HEADING */
+#meet-bappu-bomma > div:first-child h1 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 76px !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    color: #542F38 !important;
+    letter-spacing: 1px;
+    margin: 0 0 15px !important;
+}
+
+/* TELUGU HEADING */
+#meet-bappu-bomma > div:first-child h2 {
+    font-family: 'Noto Serif Telugu', serif !important;
+    font-size: 95px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    color: #713747 !important;
+    margin: 0 !important;
+}
+
+/* NYRA TEXT */
+#meet-bappu-bomma > div:first-child h3 {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 120px !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+    color: #713747 !important;
+    margin: 10px 0 0 !important;
+}
+
+/* PORTRAIT CONTAINER */
+#meet-bappu-bomma .bappu-bomma-inner {
+    position: absolute;
+    right: 2%;
+    bottom: 0;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+}
+
+/* NYRA IMAGE */
+#meet-bappu-bomma .bappu-bomma-portrait {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    object-position: bottom;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 600px) {
+
+    #meet-bappu-bomma {
+        min-height: 85vh !important;
+    }
+
+    #meet-bappu-bomma > div:first-child {
+        left: 1% !important;
+        width: 54% !important;
+    }
+
+    #meet-bappu-bomma > div:first-child h1 {
+        font-size: 20px !important;
+    }
+
+    #meet-bappu-bomma > div:first-child h2 {
+        font-size: 26px !important;
+    }
+
+    #meet-bappu-bomma > div:first-child h3 {
+        font-size: 38px !important;
+    }
+
+    #meet-bappu-bomma .bappu-bomma-inner {
+        right: 0;
+        width: 48%;
+    }
+
+    #meet-bappu-bomma .bappu-bomma-portrait {
+        max-height: 78vh;
+    }
+}
+/* LABEL BACKGROUND - PREVENT EDGE CUTTING */
+/* RESTORE LABEL BACKGROUND */
+#meet-bappu-bomma > div:first-child {
+    background-image: url("../assets/images/bgfortxt.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 125% auto !important;
+
+    width: 65% !important;
+    min-height: 420px !important;
+    padding: 35px 20px !important;
+    box-sizing: border-box;
+    overflow: visible !important;
+}
+
+/* MOVE ONLY THE TEXT DOWN */
+/* MOVE ONLY TEXT DOWN */
+#meet-bappu-bomma > div:first-child h1,
+#meet-bappu-bomma > div:first-child h2,
+#meet-bappu-bomma > div:first-child h3 {
+    position: relative !important;
+    top: 30px !important;
+}
+/* MOVE ONLY THE TEXT DOWN */
+#meet-bappu-bomma > div:first-child h1,
+#meet-bappu-bomma > div:first-child h2,
+#meet-bappu-bomma > div:first-child h3 {
+    transform: translateY(70px) !important;
+}
+/* INCREASE WALLPAPER SIZE - BAPPU BOMMA */
+#meet-bappu-bomma {
+    background-size: 140% auto !important;
+}

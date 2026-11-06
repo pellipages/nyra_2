@@ -1,0 +1,138 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4c8c8">
+
+    <title>Nyra's Half Saree Ceremony</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Noto+Serif+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Section CSS -->
+    <link rel="stylesheet" href="intro/intro.css">
+    <link rel="stylesheet" href="hero/hero.css">
+    <link rel="stylesheet" href="invitation/invitation.css">
+    <link rel="stylesheet" href="ceremony/ceremony.css">
+    <link rel="stylesheet" href="countdown/countdown.css">
+    <link rel="stylesheet" href="savedate/savedate.css">
+    <link rel="stylesheet" href="bappu-bomma/bappu-bomma.css">
+    <link rel="stylesheet" href="venue/venue.css">
+    <link rel="stylesheet" href="gallery/gallery.css">
+    <link rel="stylesheet" href="rsvp/rsvp.css">
+    <link rel="stylesheet" href="footer/footer.css">
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Section JavaScript -->
+    <script src="intro/intro.js" defer></script>
+    <script src="hero/hero.js" defer></script>
+    <script src="invitation/invitation.js" defer></script>
+    <script src="ceremony/ceremony.js" defer></script>
+    <script src="countdown/countdown.js" defer></script>
+    <script src="savedate/savedate.js" defer></script>
+    <script src="venue/venue.js" defer></script>
+    <script src="gallery/gallery.js" defer></script>
+    <script src="rsvp/rsvp.js" defer></script>
+    <script src="footer/footer.js" defer></script>
+</head>
+
+<body>
+
+    <div id="intro-mount"></div>
+
+    <main id="site-sections">
+        <p class="loading-message">Preparing your invitation...</p>
+    </main>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="nyraMusic" loop preload="none">
+        <source src="assets/music/nyra-background.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MUSIC BUTTON -->
+    <button id="nyraMusicButton" aria-label="Play background music">
+        ♫ Play Music
+    </button>
+
+    <style>
+        #nyraMusicButton {
+            display: block;
+            position: fixed;
+            top: 22px;
+            right: 22px;
+            z-index: 100001;
+
+            padding: 10px 16px;
+            border: 1px solid #c99b9d;
+            border-radius: 30px;
+
+            background: rgba(255, 240, 240, 0.95);
+            color: #86565c;
+
+            font-family: Georgia, serif;
+            font-size: 13px;
+            cursor: pointer;
+
+            box-shadow: 0 4px 15px rgba(100, 50, 50, 0.15);
+        }
+
+        #nyraMusicButton:hover {
+            background: #f5dada;
+        }
+
+        @media (max-width: 600px) {
+            #nyraMusicButton {
+                top: 15px;
+                right: 15px;
+                padding: 9px 13px;
+                font-size: 12px;
+            }
+        }
+    </style>
+
+    <!-- MUSIC CONTROLS -->
+    <script>
+        const nyraMusic = document.getElementById("nyraMusic");
+        const musicButton = document.getElementById("nyraMusicButton");
+
+        musicButton.addEventListener("click", async () => {
+
+            if (nyraMusic.paused) {
+                try {
+                    await nyraMusic.play();
+
+                    musicButton.textContent = "Ⅱ Pause Music";
+                    musicButton.setAttribute(
+                        "aria-label",
+                        "Pause background music"
+                    );
+
+                } catch (error) {
+                    musicButton.textContent = "♫ Music unavailable";
+                    console.error("Music playback failed:", error);
+                }
+
+            } else {
+                nyraMusic.pause();
+
+                musicButton.textContent = "♫ Play Music";
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Play background music"
+                );
+            }
+        });
+    </script>
+
+</body>
+</html>
