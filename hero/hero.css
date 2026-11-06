@@ -196,7 +196,7 @@
     }
   
     #hero .title-script {
-      font-size: clamp(43px, 12vw, 58px);
+      font-size: clamp(38px, 10.5vw, 52px);
     }
   }
   
