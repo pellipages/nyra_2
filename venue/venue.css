@@ -186,6 +186,28 @@
 }
 
 
+/* DRESS CODE COLOUR SWATCHES */
+
+.venue-swatches {
+    display: flex;
+    gap: 9px;
+
+    margin-top: 12px;
+}
+
+.venue-swatches i {
+    display: block;
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+    border: 1px solid var(--c-gold);
+    background: var(--swatch);
+    box-shadow: 0 0 0 2px rgba(255, 252, 247, 0.9);
+}
+
+
 /* DIRECTIONS BUTTON */
 
 .venue-map-button {
@@ -351,6 +373,15 @@
 
     .venue-detail p {
         font-size: 19px;
+    }
+
+    .venue-swatches {
+        gap: 7px;
+    }
+
+    .venue-swatches i {
+        width: 20px;
+        height: 20px;
     }
 
     .venue-map {
