@@ -3,7 +3,7 @@
   "use strict";
 
   const SECTION_ID = "save-the-date";
-  const PETAL_IMAGE = "../assets/images/pink-petal.png";
+  const PETAL_IMAGE = "../assets/images/pink-petal.webp";
   const SCRATCH_THRESHOLD = 42;
   const PETAL_COUNT = 28;
 

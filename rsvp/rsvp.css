@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
     padding: 90px 20px;
-    background-image: var(--wash-blush), url("../assets/images/half-saree-wallpaper.png");
+    background-image: var(--wash-blush), url("../assets/images/half-saree-wallpaper.webp");
     background-size: 100% 100%, 120% auto;
     background-position: center, center;
     background-repeat: no-repeat, repeat;
@@ -25,7 +25,7 @@
 }
 
 /* Pattern overlay: the site wallpaper motif laid on top of the cream
-   background (which is unchanged). rsvp-pattern.png is the motif only, on a
+   background (which is unchanged). rsvp-pattern.webp is the motif only, on a
    transparent ground, so the cream is not tinted. */
 .rsvp-card::before {
     content: "";
@@ -34,7 +34,7 @@
     z-index: -1;
     border-radius: inherit;
     pointer-events: none;
-    background-image: url("../assets/images/rsvp-pattern.png");
+    background-image: url("../assets/images/rsvp-pattern.webp");
     background-size: 460px auto;
     background-repeat: repeat;
     opacity: 0.24;

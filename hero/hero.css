@@ -19,7 +19,7 @@
     position: absolute;
     inset: 0;
     z-index: -2;
-    background-image: url("../assets/images/hero-image.png");
+    background-image: url("../assets/images/hero-image.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,7 +38,7 @@
     pointer-events: none;
   }
   
-  /* CENTRE THE TEXT INSIDE THE FRAME OF hero-image.png
+  /* CENTRE THE TEXT INSIDE THE FRAME OF hero-image.webp
      The background uses "cover", so the image is scaled by --hero-s
      (screen px per image px) and cropped around its centre. The frame's
      centre in the 1080x1920 image is x=552, y=1030 (image centre is

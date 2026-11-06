@@ -11,7 +11,7 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    background-image: var(--wash-butter), url("../assets/images/half-saree-wallpaper.png");
+    background-image: var(--wash-butter), url("../assets/images/half-saree-wallpaper.webp");
     background-repeat: no-repeat, repeat;
     background-position: center, center;
     background-size: 100% 100%, 120% auto;

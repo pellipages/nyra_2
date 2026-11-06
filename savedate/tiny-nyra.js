@@ -18,8 +18,8 @@
 (() => {
   "use strict";
 
-  const DOLL_IMAGE = "assets/images/nyra-mini.png";
-  const PETAL_IMAGE = "assets/images/pink-petal.png";
+  const DOLL_IMAGE = "assets/images/nyra-mini.webp";
+  const PETAL_IMAGE = "assets/images/pink-petal.webp";
   const POP_MS = 2700;
   const WALK_DELAY_MS = 2300; // let the third pop-out finish first
   const GIGGLES = ["hehe!", "tee-hee!", "hi hi!", "yay!"];

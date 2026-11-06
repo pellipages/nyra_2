@@ -14,7 +14,7 @@
   box-sizing: border-box;
   text-align: center;
   color: var(--c-ink-soft);
-  background-image: var(--wash-pink-mist), url("../assets/images/half-saree-wallpaper.png");
+  background-image: var(--wash-pink-mist), url("../assets/images/half-saree-wallpaper.webp");
   background-repeat: no-repeat, repeat;
   background-position: center, center;
   background-size: 100% 100%, cover;

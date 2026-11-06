@@ -5,7 +5,7 @@
     text-align: center;
 
     /* BACKGROUND */
-    background-image: var(--wash-rosewater), url("../assets/images/half-saree-wallpaper.png");
+    background-image: var(--wash-rosewater), url("../assets/images/half-saree-wallpaper.webp");
     background-size: 100% 100%, cover;
     background-position: center, center;
     background-repeat: no-repeat, no-repeat;
