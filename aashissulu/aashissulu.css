@@ -56,12 +56,14 @@
     color: var(--c-raspberry-deep);
 }
 
-.blessings-telugu {
+.blessings-card h2.blessings-telugu {
     margin: 2px 0 0;
 
     font-family: var(--font-telugu);
-    font-size: 18px;
-    color: var(--c-raspberry);
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--c-raspberry-deep);
 }
 
 .blessings-line {
@@ -162,8 +164,8 @@
         letter-spacing: 2px;
     }
 
-    .blessings-card h2 {
-        font-size: 44px;
+    .blessings-card h2.blessings-telugu {
+        font-size: 34px;
     }
 
     .blessings-lead {

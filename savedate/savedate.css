@@ -889,3 +889,28 @@
     animation: none;
   }
 }
+
+
+/* Dress code and location rows share one grid so icons and text line up */
+#save-the-date .sd-venue .venue-detail {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: start;
+  column-gap: 16px;
+  width: 100%;
+  max-width: 270px;
+  margin: 0 auto;
+}
+
+#save-the-date .sd-venue .venue-icon {
+  text-align: center;
+  line-height: 1.2;
+}
+
+#save-the-date .sd-venue .venue-detail p {
+  margin: 4px 0;
+}
+
+#save-the-date .sd-venue .venue-swatches {
+  justify-content: flex-start;
+}
