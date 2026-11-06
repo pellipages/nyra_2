@@ -259,11 +259,11 @@
     ).length;
 
     if (revealedCount === 3) {
-      hint.textContent = "Your special day has been revealed!";
+      hint.textContent = "The date has been revealed!";
     } else if (revealedCount > 0) {
       hint.textContent = `${3 - revealedCount} more to reveal`;
     } else {
-      hint.textContent = "Rub each golden coin to uncover the date";
+      hint.textContent = "Rub each golden coin to reveal the date";
     }
   }
 

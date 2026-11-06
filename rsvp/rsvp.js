@@ -17,12 +17,12 @@ document.addEventListener("submit", async function (event) {
 
     if (!name || !attending || !Number.isInteger(guests) ||
         guests < 1 || guests > 20) {
-        message.textContent = "Please enter valid RSVP details.";
+        message.textContent = "Please check your details and try once more.";
         return;
     }
 
     button.disabled = true;
-    button.textContent = "Submitting...";
+    button.textContent = "Submitting…";
 
     try {
         const response = await fetch("http://localhost:5000/api/rsvp", {
@@ -44,12 +44,14 @@ document.addEventListener("submit", async function (event) {
             throw new Error(result.error || "Submission failed");
         }
 
-        message.textContent = "Thank you! Your RSVP has been received. ♡";
+        message.textContent = attending === "Yes"
+            ? "Thank you! We can't wait to celebrate with you. ♡"
+            : "Thank you for letting us know. You'll be in our hearts that day. ♡";
         form.reset();
 
     } catch (error) {
         message.textContent =
-            "Unable to submit. Please make sure the RSVP server is running.";
+            "We couldn't send your RSVP just now. Please try again in a moment.";
     }
 
     button.disabled = false;

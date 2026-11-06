@@ -6,10 +6,10 @@
     width: 100%;
     overflow: hidden;
 
-    background-image: url("../assets/images/half-saree-wallpaper.png") !important;
-    background-repeat: repeat;
-    background-position: center center !important;
-    background-size: 120% auto !important;
+    background-image: var(--wash-bloom), url("../assets/images/half-saree-wallpaper.png") !important;
+    background-repeat: no-repeat, repeat !important;
+    background-position: center center, center center !important;
+    background-size: 100% 100%, 120% auto !important;
 
     display: block !important;
 }

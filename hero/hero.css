@@ -55,7 +55,7 @@
   /* HEADING */
   #hero .hero-eyebrow {
     margin-bottom: 20px;
-    color: var(--c-emerald);
+    color: var(--c-pink);
     font-family: var(--font-serif);
     font-size: clamp(12px, 2vw, 16px);
     font-weight: 500;
@@ -114,7 +114,7 @@
   /* SUBTITLE */
   #hero .hero-subtitle {
     margin-top: 20px;
-    color: var(--c-emerald);
+    color: var(--c-pink);
     font-family: var(--font-serif);
     font-size: clamp(17px, 2.5vw, 24px);
     font-style: italic;

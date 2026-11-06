@@ -4,68 +4,119 @@
    One place for every colour on the site. Section stylesheets
    use these variables instead of hard-coded hex values.
 
-   Palette story (taken from the artwork itself):
-   pink silk + peacock green + temple gold, anchored by
-   deep raspberry and aubergine neutrals.
+   Palette story: soft pastels, confident and elegant —
+   rose quartz + warm pink + butter yellow + champagne gold, with
+   a faint lavender mist and peach blooms. No dark grounds; depth comes from a few deeper
+   mulberry / sage tones used only for text and buttons.
 
    ROLE            TOKEN                 USED FOR
    ----------------------------------------------------------
-   Primary         --c-raspberry         Nyra's name, key headings, buttons
-                   --c-raspberry-deep    Strong headings on light grounds
-   Secondary       --c-emerald           Eyebrows, labels, supporting headings
-                   --c-emerald-deep      Dark green grounds (gallery)
+   Primary         --c-raspberry         Buttons, key accents (dusty rose)
+                   --c-raspberry-deep    Headings on pastel grounds
+   Secondary       --c-pink            Eyebrows, labels, buttons (warm pink)
+                   --c-pink-deep       Hover state, deep pink text
    Accent (metal)  --c-gold              Rules, ornaments, borders, coins
-                   --c-gold-deep         Gold TEXT on light grounds (AA contrast)
-                   --c-gold-light        Gold text on dark grounds
-   Backgrounds     --c-blush / --c-ivory / --c-cream (light)
-                   --c-plum / --c-plum-deep           (dark)
+                   --c-gold-deep         Gold TEXT on pastel grounds (AA)
+                   --c-gold-light        Soft champagne highlights
+   Backgrounds     --c-blush / --c-ivory / --c-cream / --c-lavender
+                   --c-butter / --c-peach
    Text            --c-ink               Strongest body text
                    --c-ink-soft          Paragraphs
                    --c-ink-muted         Captions, hints
 ========================================================== */
 
 :root {
-  /* Primary — raspberry */
-  --c-raspberry:       #a20f50;
-  --c-raspberry-deep:  #6e0b36;
-  --c-rose:            #c2557a;   /* softer pink accent for hover / ornaments */
+  /* Primary — dusty rose */
+  --c-raspberry:       #a94670;
+  --c-raspberry-deep:  #7d2f55;
+  --c-rose:            #d68aa3;   /* softer pink accent for hover / ornaments */
 
-  /* Secondary — peacock emerald */
-  --c-emerald:         #1f5b4d;
-  --c-emerald-deep:    #123d33;
-  --c-sage:            #87977a;
+  /* Secondary — warm pink */
+  --c-pink:            #a8416c;
+  --c-pink-deep:       #8a3560;
+  --c-blossom:         #f4bfd0;
 
-  /* Accent — antique gold (metallic) */
-  --c-gold:            #b8892f;
-  --c-gold-deep:       #7f5c17;
-  --c-gold-light:      #ecd08a;
-  --gold-metal: linear-gradient(135deg, #f0d894 0%, #c9993a 48%, #e8c872 100%);
+  /* Accent — champagne gold (metallic) */
+  --c-gold:            #cfa762;
+  --c-gold-deep:       #7a5b14;
+  --c-gold-light:      #f3dfb0;
+  --gold-metal: linear-gradient(135deg, #f6e6bb 0%, #d9b46d 48%, #f1dca6 100%);
 
-  /* Backgrounds */
-  --c-blush:           #f4c8c8;
-  --c-blush-soft:      #fbe6e4;
+  /* Backgrounds — the pastel family */
+  --c-blush:           #f9d9dc;
+  --c-blush-soft:      #fdecec;
   --c-ivory:           #fff8ef;
-  --c-cream:           #f6e9d7;
-  --c-plum:            #4a1430;
-  --c-plum-deep:       #2e0c1e;
+  --c-cream:           #f8ecdf;
+  --c-lavender:        #e6dcf3;
+  --c-butter:          #fbefcf;
+  --c-peach:           #ffe3d3;
+
+  /* Deep tones — for TEXT only (never as a background) */
+  --c-plum:            #6a3350;
+  --c-plum-deep:       #4a2338;
 
   /* Text */
-  --c-ink:             #3a1826;
-  --c-ink-soft:        #5f3d4b;
-  --c-ink-muted:       #7b5a66;
+  --c-ink:             #4a2a3a;
+  --c-ink-soft:        #664352;
+  --c-ink-muted:       #7e5967;
 
-  /* Overlays used to re-tint the shared pink wallpaper per section */
-  --wash-plum: linear-gradient(165deg, rgba(110, 11, 54, 0.93), rgba(46, 12, 30, 0.95));
-  --wash-ivory: linear-gradient(rgba(255, 248, 239, 0.84), rgba(246, 233, 215, 0.88));
-  --wash-emerald: linear-gradient(165deg, rgba(31, 91, 77, 0.95), rgba(18, 61, 51, 0.97));
-  --wash-blush: linear-gradient(rgba(244, 200, 200, 0.55), rgba(236, 170, 186, 0.45));
+  /* ------------------------------------------------------
+     SECTION WASHES
+     Each wash lays soft, off-centre "blooms" of pastel colour
+     over the shared wallpaper. Where a bloom is strong the
+     wallpaper motif is gently veiled; where it is thin the
+     motif shows through. So the repeat pattern appears in
+     drifting patches instead of a rigid, uniform grid.
+     Every section uses a different arrangement of blooms.
+  ------------------------------------------------------ */
+
+  /* Default for content sections (global.css) */
+  --wash-bloom:
+    radial-gradient(ellipse 70% 42% at 12% 16%, rgba(255, 251, 246, 0.86), transparent 70%),
+    radial-gradient(ellipse 58% 48% at 90% 58%, rgba(230, 220, 243, 0.78), transparent 72%),
+    radial-gradient(ellipse 66% 40% at 28% 94%, rgba(255, 227, 211, 0.80), transparent 70%),
+    linear-gradient(rgba(255, 244, 244, 0.22), rgba(252, 236, 240, 0.30));
+
+  /* Save the Date — lavender mist */
+  --wash-lavender:
+    radial-gradient(ellipse 62% 40% at 85% 12%, rgba(255, 251, 246, 0.88), transparent 70%),
+    radial-gradient(ellipse 70% 46% at 10% 48%, rgba(230, 220, 243, 0.90), transparent 74%),
+    radial-gradient(ellipse 60% 38% at 78% 90%, rgba(255, 227, 211, 0.78), transparent 70%),
+    linear-gradient(rgba(249, 235, 244, 0.38), rgba(240, 230, 248, 0.42));
+
+  /* Gallery — butter yellow and blush */
+  --wash-butter:
+    radial-gradient(ellipse 66% 40% at 14% 10%, rgba(251, 239, 207, 0.92), transparent 72%),
+    radial-gradient(ellipse 60% 46% at 92% 50%, rgba(255, 248, 239, 0.86), transparent 70%),
+    radial-gradient(ellipse 68% 38% at 22% 92%, rgba(249, 217, 220, 0.78), transparent 72%),
+    linear-gradient(rgba(253, 244, 232, 0.40), rgba(252, 236, 240, 0.34));
+
+  /* Footer — rosewater */
+  --wash-rosewater:
+    radial-gradient(ellipse 70% 44% at 50% 8%, rgba(255, 248, 239, 0.88), transparent 72%),
+    radial-gradient(ellipse 56% 50% at 6% 70%, rgba(255, 227, 211, 0.80), transparent 72%),
+    radial-gradient(ellipse 58% 44% at 96% 86%, rgba(230, 220, 243, 0.76), transparent 70%),
+    linear-gradient(rgba(249, 217, 220, 0.46), rgba(253, 236, 236, 0.40));
+
+  /* Venue — warm cream */
+  --wash-ivory:
+    radial-gradient(ellipse 64% 42% at 88% 14%, rgba(255, 251, 246, 0.90), transparent 70%),
+    radial-gradient(ellipse 60% 46% at 8% 56%, rgba(255, 227, 211, 0.72), transparent 72%),
+    radial-gradient(ellipse 66% 38% at 70% 96%, rgba(230, 220, 243, 0.72), transparent 70%),
+    linear-gradient(rgba(255, 248, 239, 0.50), rgba(248, 236, 223, 0.54));
+
+  /* RSVP — blush */
+  --wash-blush:
+    radial-gradient(ellipse 66% 42% at 16% 18%, rgba(255, 248, 239, 0.80), transparent 70%),
+    radial-gradient(ellipse 60% 48% at 88% 72%, rgba(230, 220, 243, 0.70), transparent 72%),
+    linear-gradient(rgba(249, 217, 220, 0.50), rgba(246, 205, 214, 0.40));
 
   /* Legacy names still referenced by intro.css */
   --blush: var(--c-blush);
   --rose: var(--c-rose);
   --deep-rose: var(--c-raspberry-deep);
-  --sage: var(--c-sage);
-  --deep-green: var(--c-emerald);
+  --sage: var(--c-blossom);
+  --deep-green: var(--c-pink);
   --ivory: var(--c-ivory);
   --gold: var(--c-gold);
   --text: var(--c-ink-soft);
@@ -77,6 +128,6 @@ body {
 }
 
 ::selection {
-  background: var(--c-raspberry);
-  color: var(--c-ivory);
+  background: var(--c-rose);
+  color: var(--c-ink);
 }

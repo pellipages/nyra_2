@@ -108,10 +108,12 @@ html {
 ======================================== */
 
 #site-sections > .content-section:not(#hero):not(#invitation) {
-  background-image: url("../assets/images/half-saree-wallpaper.png");
-  background-repeat: repeat;
-  background-position: top center;
-  background-size: 100% auto;
+  /* Pastel blooms over the wallpaper: the motif shows through in
+     drifting patches instead of a rigid, uniform repeat */
+  background-image: var(--wash-bloom), url("../assets/images/half-saree-wallpaper.png");
+  background-repeat: no-repeat, repeat;
+  background-position: center, top center;
+  background-size: 100% 100%, 100% auto;
 
   /* Remove the white gaps */
   margin: 0;

@@ -11,7 +11,7 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    background-image: var(--wash-emerald), url("../assets/images/half-saree-wallpaper.png");
+    background-image: var(--wash-butter), url("../assets/images/half-saree-wallpaper.png");
     background-repeat: no-repeat, repeat;
     background-position: center, center;
     background-size: 100% 100%, 120% auto;
@@ -29,7 +29,7 @@
     font-family: var(--font-serif);
     font-size: 23px;
     letter-spacing: 3px;
-    color: var(--c-gold-light);
+    color: var(--c-gold-deep);
     margin: 0 0 8px;
 }
 
@@ -37,14 +37,14 @@
     font-family: var(--font-script);
     font-size: 76px;
     font-weight: 400;
-    color: var(--c-ivory);
+    color: var(--c-raspberry-deep);
     margin: 0;
 }
 
 .gallery-heading span {
     display: block;
     font-size: 30px;
-    color: var(--c-gold-light);
+    color: var(--c-gold-deep);
     margin-top: 8px;
 }
 

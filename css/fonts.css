@@ -8,6 +8,9 @@
                      "Half Saree", Nyra's name.
    --font-script     Pinyon Script
                      Statement section headings.
+   Feature phrases   --font-statement (Sloop → Pinyon) is also used for
+                     the "special" lines: card titles, the dates, and
+                     The Celebration Awaits / Begins In.
    --font-serif      Canela
                      Everything else: paragraphs, secondary
                      headings, event details, labels, buttons.
@@ -188,6 +191,15 @@ p {
 .title-script,
 .invitation-name,
 .sd-title,
+.sd-card-title,
+.sd-result-title,
+.sd-result-date,
+.sd-countdown-title,
+.venue-heading h2,
+.venue-label,
+.venue-date,
+.venue-date span,
+.footer-date,
 .gallery-heading h2,
 .rsvp-card h2,
 .nyra-footer h2,
