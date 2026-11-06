@@ -13,6 +13,8 @@
 }
 
 .rsvp-card {
+    position: relative;
+    isolation: isolate;
     width: 100%;
     max-width: 600px;
     padding: 45px;
@@ -20,6 +22,22 @@
     border: 2px solid var(--c-gold);
     border-radius: 12px;
     box-shadow: 0 12px 35px rgba(80, 40, 50, 0.15);
+}
+
+/* Pattern overlay: the site wallpaper motif laid on top of the cream
+   background (which is unchanged). rsvp-pattern.png is the motif only, on a
+   transparent ground, so the cream is not tinted. */
+.rsvp-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image: url("../assets/images/rsvp-pattern.png");
+    background-size: 460px auto;
+    background-repeat: repeat;
+    opacity: 0.24;
 }
 
 .rsvp-small {
@@ -126,6 +144,10 @@
 
     .rsvp-card {
         padding: 28px 20px;
+    }
+
+    .rsvp-card::before {
+        background-size: 360px auto;
     }
 
     .rsvp-card h2 {
