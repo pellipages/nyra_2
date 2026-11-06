@@ -8,10 +8,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     "invitation/invitation.html",
     "savedate/savedate.html",
     "bappu-bomma/bappu-bomma.html",
-    "ceremony/ceremony.html",
-    "countdown/countdown.html",
-    "venue/venue.html",
     "gallery/gallery.html",
+    "venue/venue.html",
     "rsvp/rsvp.html",
     "footer/footer.html"
   ];

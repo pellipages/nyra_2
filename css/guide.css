@@ -1,0 +1,181 @@
+/* ==========================================================
+   GUIDE CUES — tell guests what to do next, quietly.
+
+   1. .next-cue   : a soft pill at the end of a section that
+                    scrolls to the next one (gentle pulse).
+   2. Interaction hints: scratch coins, gallery photos, map.
+
+   Everything is transform/box-shadow only, stops once the
+   guest has acted, and is off for "reduce motion".
+========================================================== */
+
+/* ---------- Next-section pill ---------- */
+
+.next-cue-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex: 0 0 100%;
+  padding: 36px 16px 8px;
+}
+
+/* The invitation section is a flex row (arch artwork), so the cue sits
+   along its bottom edge, full width and horizontal, not beside the arch. */
+.nyra-invitation > .next-cue-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  z-index: 2;
+  padding: 0 16px;
+}
+
+.next-cue,
+#hero .hero-scroll,
+#meet-bappu-bomma .bb-more {
+  --cue-ring: rgba(169, 70, 112, 0.28);
+}
+
+.next-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 22px;
+  border: 1px solid var(--c-gold);
+  border-radius: 30px;
+  background: rgba(255, 248, 239, 0.94);
+  color: var(--c-raspberry-deep);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(100, 50, 50, 0.12);
+  animation: cue-pulse 2.8s ease-in-out infinite;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Chevron drawn in CSS (no emoji / glyph) */
+.next-cue span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: cue-bob 2.8s ease-in-out infinite;
+}
+
+.next-cue:hover,
+.next-cue:focus-visible {
+  background: var(--c-raspberry);
+  color: var(--c-ivory);
+  animation: none;
+}
+
+/* The two cues that already existed get the same soft pulse */
+#hero .hero-scroll,
+#meet-bappu-bomma .bb-more {
+  animation-name: cue-pulse;
+  animation-duration: 2.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* hero already has an entrance animation: pulse starts after it */
+body.hero-ready #hero .hero-scroll {
+  animation: hero-reveal 0.9s ease-out 1.1s both,
+             cue-pulse 2.8s ease-in-out 2.2s infinite;
+}
+
+#meet-bappu-bomma .bb-more {
+  padding: 8px 18px;
+  border: 1px solid var(--c-gold);
+  border-radius: 30px;
+  background: rgba(255, 248, 239, 0.94);
+}
+
+@keyframes cue-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  50%      { box-shadow: 0 0 0 9px var(--cue-ring); }
+}
+
+@keyframes cue-bob {
+  0%, 100% { transform: translateY(0) rotate(45deg); }
+  50%      { transform: translateY(4px) rotate(45deg); }
+}
+
+/* ---------- Scratch card ---------- */
+
+#save-the-date:not(.is-touched) .sd-coin:not(.is-revealed)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: coin-hint 2.2s ease-in-out infinite;
+}
+
+@keyframes coin-hint {
+  0%, 100% { box-shadow: inset 0 0 0 3px rgba(255, 248, 239, 0); }
+  50%      { box-shadow: inset 0 0 0 3px rgba(255, 248, 239, 0.9),
+                         inset 0 0 22px rgba(255, 248, 239, 0.6); }
+}
+
+#save-the-date .sd-scratch-hint {
+  display: table;
+  padding: 7px 18px;
+  border: 1px solid var(--c-gold);
+  border-radius: 30px;
+  background: rgba(255, 248, 239, 0.9);
+  color: var(--c-raspberry-deep);
+}
+
+#save-the-date:not(.is-touched) .sd-scratch-hint {
+  --cue-ring: rgba(169, 70, 112, 0.22);
+  animation: cue-pulse 2.8s ease-in-out infinite;
+}
+
+/* ---------- Gallery ---------- */
+
+.gallery-hint {
+  display: inline-block;
+  padding: 7px 18px;
+  border: 1px solid var(--c-gold);
+  border-radius: 30px;
+  background: rgba(255, 248, 239, 0.9);
+  color: var(--c-raspberry-deep);
+}
+
+.gallery-hint:not(.is-seen) {
+  --cue-ring: rgba(169, 70, 112, 0.22);
+  animation: cue-pulse 2.8s ease-in-out infinite;
+}
+
+.floating-photo { cursor: pointer; }
+
+/* ---------- Map ---------- */
+
+/* On phones a finger on the map traps the page scroll, so the map
+   only becomes interactive after one tap. */
+.venue-map:not(.is-active) iframe {
+  pointer-events: none;
+}
+
+.venue-map:not(.is-active) { cursor: pointer; }
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .next-cue,
+  .next-cue span,
+  #hero .hero-scroll,
+  body.hero-ready #hero .hero-scroll,
+  #meet-bappu-bomma .bb-more,
+  #save-the-date .sd-scratch-hint,
+  .gallery-hint,
+  #save-the-date .sd-coin::after {
+    animation: none !important;
+  }
+}
