@@ -28,7 +28,7 @@ html {
   .loading-message {
     padding: 40px 20px;
     text-align: center;
-    color: #914c5d;
+    color: var(--c-raspberry-deep);
     font-family: var(--font-serif);
     font-size: 22px;
   }
@@ -108,7 +108,7 @@ html {
 ======================================== */
 
 #site-sections > .content-section:not(#hero):not(#invitation) {
-  background-image: url("../assets/images/blush-pink-patterned-wallpaper.png");
+  background-image: url("../assets/images/half-saree-wallpaper.png");
   background-repeat: repeat;
   background-position: top center;
   background-size: 100% auto;

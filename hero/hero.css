@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: #f4c8c8;
+    background: var(--c-blush);
     text-align: center;
   }
   
@@ -55,7 +55,7 @@
   /* HEADING */
   #hero .hero-eyebrow {
     margin-bottom: 20px;
-    color: #52684d;
+    color: var(--c-emerald);
     font-family: var(--font-serif);
     font-size: clamp(12px, 2vw, 16px);
     font-weight: 500;
@@ -69,13 +69,13 @@
     justify-content: center;
     gap: 14px;
     margin: 20px 0;
-    color: #b69a5b;
+    color: var(--c-gold);
   }
   
   #hero .hero-divider span {
     width: 50px;
     height: 1px;
-    background: #b69a5b;
+    background: var(--c-gold);
   }
   
   #hero .hero-divider b {
@@ -96,7 +96,7 @@
   
   #hero .title-line {
     display: block;
-    color: #914c5d;
+    color: var(--c-raspberry-deep);
     font-family: var(--font-serif);
     font-size: clamp(34px, 5.8vw, 64px);
     font-weight: 300;
@@ -105,7 +105,7 @@
   #hero .title-script {
     display: block;
     margin: 4px 0;
-    color: #a6536b;
+    color: var(--c-raspberry);
     font-family: var(--font-statement);
     font-size: clamp(52px, 8.5vw, 96px);
     font-weight: 400;
@@ -114,7 +114,7 @@
   /* SUBTITLE */
   #hero .hero-subtitle {
     margin-top: 20px;
-    color: #52684d;
+    color: var(--c-emerald);
     font-family: var(--font-serif);
     font-size: clamp(17px, 2.5vw, 24px);
     font-style: italic;
@@ -123,7 +123,7 @@
   /* ORNAMENT */
   #hero .hero-ornament {
     margin-top: 22px;
-    color: #b69a5b;
+    color: var(--c-gold);
     font-size: 24px;
     letter-spacing: 5px;
   }
@@ -136,11 +136,13 @@
     gap: 10px;
     margin-top: 28px;
     padding: 11px 22px;
-    border: 1px solid #b69a5b;
+    border: 1px solid var(--c-gold);
     border-radius: 30px;
-    background: rgba(255, 244, 234, 0.94);
-    color: #914c5d;
+    background: var(--c-raspberry);
+    color: var(--c-ivory);
     text-decoration: none;
+    box-shadow: 0 6px 16px rgba(110, 11, 54, 0.22);
+    transition: background 0.3s ease, transform 0.3s ease;
   }
   
   /* TEXT ANIMATION */
@@ -207,3 +209,8 @@
     }
   }
   
+/* CTA hover */
+#hero .hero-scroll:hover {
+    background: var(--c-raspberry-deep);
+    transform: translateY(-2px);
+}

@@ -11,10 +11,10 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    background-image: url("../assets/images/half-saree-wallpaper.png");
-    background-repeat: repeat;
-    background-position: center;
-    background-size: 120% auto;
+    background-image: var(--wash-emerald), url("../assets/images/half-saree-wallpaper.png");
+    background-repeat: no-repeat, repeat;
+    background-position: center, center;
+    background-size: 100% 100%, 120% auto;
 }
 
 /* GALLERY HEADING */
@@ -29,7 +29,7 @@
     font-family: var(--font-serif);
     font-size: 23px;
     letter-spacing: 3px;
-    color: #80505A;
+    color: var(--c-gold-light);
     margin: 0 0 8px;
 }
 
@@ -37,14 +37,14 @@
     font-family: var(--font-script);
     font-size: 76px;
     font-weight: 400;
-    color: #713747;
+    color: var(--c-ivory);
     margin: 0;
 }
 
 .gallery-heading span {
     display: block;
     font-size: 30px;
-    color: #B18A55;
+    color: var(--c-gold-light);
     margin-top: 8px;
 }
 
@@ -294,7 +294,7 @@
     .gallery-section {
         min-height: 950px;
         padding: 65px 4% 40px;
-        background-size: 130% auto;
+        background-size: 100% 100%, 130% auto;
     }
 
     .gallery-heading p {

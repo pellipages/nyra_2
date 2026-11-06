@@ -31,7 +31,7 @@
     font-size: 76px !important;
     font-weight: 300 !important;
     line-height: 1.2 !important;
-    color: #542F38 !important;
+    color: var(--c-plum) !important;
     letter-spacing: 1px;
     margin: 0 0 15px !important;
 }
@@ -42,7 +42,7 @@
     font-size: 95px !important;
     font-weight: 600 !important;
     line-height: 1.4 !important;
-    color: #713747 !important;
+    color: var(--c-raspberry-deep) !important;
     margin: 0 !important;
 }
 
@@ -52,7 +52,7 @@
     font-size: 120px !important;
     font-weight: 400 !important;
     line-height: 1.2 !important;
-    color: #713747 !important;
+    color: var(--c-raspberry-deep) !important;
     margin: 10px 0 0 !important;
 }
 

@@ -1,0 +1,82 @@
+/* ==========================================================
+   COLOUR SYSTEM — NYRA'S HALF SAREE CEREMONY
+
+   One place for every colour on the site. Section stylesheets
+   use these variables instead of hard-coded hex values.
+
+   Palette story (taken from the artwork itself):
+   pink silk + peacock green + temple gold, anchored by
+   deep raspberry and aubergine neutrals.
+
+   ROLE            TOKEN                 USED FOR
+   ----------------------------------------------------------
+   Primary         --c-raspberry         Nyra's name, key headings, buttons
+                   --c-raspberry-deep    Strong headings on light grounds
+   Secondary       --c-emerald           Eyebrows, labels, supporting headings
+                   --c-emerald-deep      Dark green grounds (gallery)
+   Accent (metal)  --c-gold              Rules, ornaments, borders, coins
+                   --c-gold-deep         Gold TEXT on light grounds (AA contrast)
+                   --c-gold-light        Gold text on dark grounds
+   Backgrounds     --c-blush / --c-ivory / --c-cream (light)
+                   --c-plum / --c-plum-deep           (dark)
+   Text            --c-ink               Strongest body text
+                   --c-ink-soft          Paragraphs
+                   --c-ink-muted         Captions, hints
+========================================================== */
+
+:root {
+  /* Primary — raspberry */
+  --c-raspberry:       #a20f50;
+  --c-raspberry-deep:  #6e0b36;
+  --c-rose:            #c2557a;   /* softer pink accent for hover / ornaments */
+
+  /* Secondary — peacock emerald */
+  --c-emerald:         #1f5b4d;
+  --c-emerald-deep:    #123d33;
+  --c-sage:            #87977a;
+
+  /* Accent — antique gold (metallic) */
+  --c-gold:            #b8892f;
+  --c-gold-deep:       #7f5c17;
+  --c-gold-light:      #ecd08a;
+  --gold-metal: linear-gradient(135deg, #f0d894 0%, #c9993a 48%, #e8c872 100%);
+
+  /* Backgrounds */
+  --c-blush:           #f4c8c8;
+  --c-blush-soft:      #fbe6e4;
+  --c-ivory:           #fff8ef;
+  --c-cream:           #f6e9d7;
+  --c-plum:            #4a1430;
+  --c-plum-deep:       #2e0c1e;
+
+  /* Text */
+  --c-ink:             #3a1826;
+  --c-ink-soft:        #5f3d4b;
+  --c-ink-muted:       #7b5a66;
+
+  /* Overlays used to re-tint the shared pink wallpaper per section */
+  --wash-plum: linear-gradient(165deg, rgba(110, 11, 54, 0.93), rgba(46, 12, 30, 0.95));
+  --wash-ivory: linear-gradient(rgba(255, 248, 239, 0.84), rgba(246, 233, 215, 0.88));
+  --wash-emerald: linear-gradient(165deg, rgba(31, 91, 77, 0.95), rgba(18, 61, 51, 0.97));
+  --wash-blush: linear-gradient(rgba(244, 200, 200, 0.55), rgba(236, 170, 186, 0.45));
+
+  /* Legacy names still referenced by intro.css */
+  --blush: var(--c-blush);
+  --rose: var(--c-rose);
+  --deep-rose: var(--c-raspberry-deep);
+  --sage: var(--c-sage);
+  --deep-green: var(--c-emerald);
+  --ivory: var(--c-ivory);
+  --gold: var(--c-gold);
+  --text: var(--c-ink-soft);
+}
+
+body {
+  background: var(--c-ivory);
+  color: var(--c-ink-soft);
+}
+
+::selection {
+  background: var(--c-raspberry);
+  color: var(--c-ivory);
+}

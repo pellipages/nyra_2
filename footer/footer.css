@@ -5,12 +5,13 @@
     text-align: center;
 
     /* BACKGROUND */
-    background-image: url("../assets/images/half-saree-wallpaper.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: var(--wash-plum), url("../assets/images/half-saree-wallpaper.png");
+    background-size: 100% 100%, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
 
-    color: #70464b;
+    color: var(--c-blush);
+    border-top: 3px solid var(--c-gold);
     position: relative;
     overflow: hidden;
 }
@@ -18,7 +19,7 @@
 /* FLOWER */
 .footer-flower {
     font-size: 42px;
-    color: #b77d82;
+    color: var(--c-gold-light);
     margin-bottom: 15px;
 }
 
@@ -27,7 +28,7 @@
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 4px;
-    color: #a66e73;
+    color: var(--c-gold-light);
     margin-bottom: 15px;
 }
 
@@ -36,7 +37,7 @@
     font-family: var(--font-script);
     font-size: clamp(38px, 6vw, 58px);
     font-weight: 400;
-    color: #985c65;
+    color: var(--c-ivory);
     margin-bottom: 20px;
 }
 
@@ -47,7 +48,7 @@
     font-family: var(--font-serif);
     font-size: 19px;
     line-height: 1.7;
-    color: #704d50;
+    color: var(--c-blush);
 }
 
 /* DECORATIVE DIVIDER */
@@ -57,7 +58,7 @@
     justify-content: center;
     gap: 15px;
     margin: 30px auto;
-    color: #ad777c;
+    color: var(--c-gold-light);
 }
 
 .footer-divider::before,
@@ -65,7 +66,7 @@
     content: "";
     width: 65px;
     height: 1px;
-    background: #c99b9d;
+    background: var(--c-gold);
 }
 
 .footer-divider span {
@@ -77,7 +78,7 @@
     font-family: var(--font-serif);
     font-size: clamp(17px, 3vw, 23px);
     font-weight: 500;
-    color: #86565c;
+    color: var(--c-gold-light);
     margin-bottom: 12px;
 }
 
@@ -86,7 +87,7 @@
     font-family: var(--font-serif);
     font-size: 18px;
     letter-spacing: 1px;
-    color: #79575a;
+    color: var(--c-ivory);
 }
 
 /* CLOSING MESSAGE */
@@ -96,17 +97,17 @@
     font-style: italic;
     font-weight: 300;
     font-size: 23px;
-    color: #a56b73;
+    color: var(--c-blush);
 }
 
 /* BOTTOM COPYRIGHT */
 .footer-bottom {
     margin-top: 40px;
     padding-top: 18px;
-    border-top: 1px solid rgba(160, 105, 110, 0.25);
+    border-top: 1px solid rgba(236, 208, 138, 0.3);
     font-size: 11px;
     letter-spacing: 1px;
-    color: #98777a;
+    color: rgba(251, 230, 228, 0.7);
 }
 
 /* MOBILE RESPONSIVE */

@@ -20,6 +20,9 @@
     <!-- Typography system (font faces + roles) -->
     <link rel="stylesheet" href="css/fonts.css">
 
+    <!-- Colour system (palette tokens) -->
+    <link rel="stylesheet" href="css/theme.css">
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/global.css">
 
@@ -79,11 +82,11 @@
             z-index: 100001;
 
             padding: 10px 16px;
-            border: 1px solid #c99b9d;
+            border: 1px solid var(--c-gold);
             border-radius: 30px;
 
-            background: rgba(255, 240, 240, 0.95);
-            color: #86565c;
+            background: rgba(255, 248, 239, 0.96);
+            color: var(--c-raspberry-deep);
 
             font-family: var(--font-serif);
             font-weight: 500;
@@ -94,7 +97,8 @@
         }
 
         #nyraMusicButton:hover {
-            background: #f5dada;
+            background: var(--c-raspberry);
+            color: var(--c-ivory);
         }
 
         @media (max-width: 600px) {

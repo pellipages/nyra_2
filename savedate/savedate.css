@@ -13,11 +13,11 @@
   overflow: hidden;
   box-sizing: border-box;
   text-align: center;
-  color: #794c57;
-  background-image: url("../assets/images/half-saree-wallpaper.png");
-  background-repeat: repeat;
-  background-position: center;
-  background-size: cover;
+  color: var(--c-ivory);
+  background-image: var(--wash-plum), url("../assets/images/half-saree-wallpaper.png");
+  background-repeat: no-repeat, repeat;
+  background-position: center, center;
+  background-size: 100% 100%, cover;
 }
 
 #save-the-date *,
@@ -38,7 +38,7 @@
 
 #save-the-date .sd-eyebrow {
   margin: 0 0 12px;
-  color: #a16e7a;
+  color: var(--c-gold-light);
   font-family: var(--font-serif);
   font-size: 12px;
   font-weight: 500;
@@ -48,7 +48,8 @@
 
 #save-the-date .sd-title {
   margin: 0;
-  color: #814e5b;
+  color: var(--c-ivory);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
   font-family: var(--font-script);
   font-size: clamp(46px, 6.6vw, 72px);
   font-weight: 400;
@@ -58,7 +59,7 @@
 #save-the-date .sd-subtitle {
   max-width: 600px;
   margin: 15px auto 0;
-  color: #87656b;
+  color: var(--c-blush);
   font-family: var(--font-serif);
   font-size: clamp(15px, 2vw, 19px);
   font-style: italic;
@@ -78,16 +79,16 @@
   margin: 36px auto 0;
   padding: 42px 28px;
   overflow: hidden;
-  border: 2px solid #dfc9ad;
+  border: 2px solid var(--c-gold);
   border-radius: 12px;
-  background: rgba(255, 251, 247, 0.94);
-  box-shadow: 0 8px 28px rgba(115, 70, 78, 0.08);
+  background: rgba(255, 248, 239, 0.97);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 }
 
 #save-the-date .sd-card::before {
   position: absolute;
   inset: 12px;
-  border: 1px solid #ead9c7;
+  border: 1px solid rgba(184, 137, 47, 0.45);
   content: "";
   pointer-events: none;
 }
@@ -95,7 +96,7 @@
 #save-the-date .sd-card-title {
   position: relative;
   margin: 0 0 12px;
-  color: #81505c;
+  color: var(--c-raspberry-deep);
   font-family: var(--font-serif);
   font-size: clamp(23px, 3.5vw, 30px);
   font-weight: 400;
@@ -105,7 +106,7 @@
 #save-the-date .sd-card-description {
   position: relative;
   margin: 0 auto 28px;
-  color: #96767c;
+  color: var(--c-ink-muted);
   font-family: var(--font-serif);
   font-size: 15px;
   line-height: 1.7;
@@ -146,7 +147,7 @@
   aspect-ratio: 1 / 1 !important;
   justify-self: center !important;
   overflow: hidden !important;
-  border: 2px solid #bd9140;
+  border: 2px solid var(--c-gold);
   border-radius: 50% !important;
   background:
     radial-gradient(circle at 32% 25%, #fff1bd 0%, transparent 35%),
@@ -179,7 +180,7 @@
   display: block !important;
   margin: 0 !important;
   padding: 0 !important;
-  color: #794b36;
+  color: var(--c-raspberry-deep);
   font-family: var(--font-serif);
   font-size: 30px !important;
   font-weight: 400;
@@ -190,7 +191,7 @@
   display: block !important;
   margin: 0 !important;
   padding: 0 !important;
-  color: #794b36;
+  color: var(--c-plum);
   font-family: var(--font-serif);
   font-size: 13px !important;
   font-weight: 500;
@@ -230,7 +231,7 @@
   display: block;
   width: 100%;
   margin: 10px 0 0;
-  color: #814e5b;
+  color: var(--c-raspberry-deep);
   font-family: var(--font-serif);
   font-size: 17px;
   line-height: 1.35;
@@ -243,7 +244,7 @@
   position: relative;
   margin: 24px auto 0;
   min-height: 25px;
-  color: #a16f7b;
+  color: var(--c-ink-muted);
   font-family: var(--font-serif);
   font-size: 15px;
   line-height: 1.7;
@@ -268,7 +269,7 @@
 
 #save-the-date .sd-result-title {
   margin: 0 0 18px;
-  color: #814e5b;
+  color: var(--c-emerald);
   font-family: var(--font-serif);
   font-size: clamp(24px, 4vw, 31px);
   font-weight: 400;
@@ -277,7 +278,7 @@
 
 #save-the-date .sd-result-date {
   margin: 0;
-  color: #814e5b;
+  color: var(--c-raspberry);
   font-family: var(--font-serif);
   font-size: clamp(25px, 4vw, 38px);
   font-weight: 400;
@@ -286,7 +287,7 @@
 
 #save-the-date .sd-result-message {
   margin: 18px auto 0;
-  color: #99777b;
+  color: var(--c-ink-soft);
   font-family: var(--font-serif);
   font-size: clamp(14px, 2.2vw, 18px);
   line-height: 1.8;
@@ -308,7 +309,7 @@
 
 #save-the-date .sd-countdown-title {
   margin: 0 0 22px;
-  color: #814e5b;
+  color: var(--c-gold-light);
   font-family: var(--font-serif);
   font-size: clamp(22px, 4vw, 30px);
   font-weight: 400;
@@ -337,10 +338,10 @@
   min-height: 95px !important;
   margin: 0 !important;
   padding: 15px 5px !important;
-  border: 1px solid #dfc4ae !important;
+  border: 1px solid var(--c-gold) !important;
   border-radius: 6px !important;
-  background: rgba(255, 250, 246, 0.88) !important;
-  box-shadow: 0 3px 10px rgba(115, 70, 78, 0.05);
+  background: rgba(255, 248, 239, 0.96) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   text-align: center !important;
 }
 
@@ -349,7 +350,7 @@
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  color: #814e5b !important;
+  color: var(--c-raspberry) !important;
   font-family: var(--font-serif) !important;
   font-size: clamp(25px, 4vw, 35px) !important;
   font-weight: 400 !important;
@@ -363,7 +364,7 @@
   width: 100% !important;
   margin: 8px 0 0 !important;
   padding: 0 !important;
-  color: #a4777d !important;
+  color: var(--c-gold-deep) !important;
   font-family: var(--font-serif) !important;
   font-size: 10px !important;
   font-weight: 500 !important;
@@ -379,7 +380,7 @@
 #save-the-date .sd-footer-message {
   max-width: 600px;
   margin: 28px auto 0;
-  color: #814e5b;
+  color: var(--c-ivory);
   font-family: var(--font-serif);
   font-size: clamp(16px, 2.7vw, 23px);
   line-height: 1.7;
@@ -621,9 +622,10 @@
   min-width: 0 !important;
   min-height: 95px !important;
   padding: 14px 4px !important;
-  border: 1px solid #d9bba5 !important;
+  border: 1px solid var(--c-gold) !important;
   border-radius: 6px !important;
-  background: rgba(255, 250, 246, 0.85) !important;
+  background: rgba(255, 248, 239, 0.96) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   text-align: center !important;
 }
 
@@ -633,7 +635,7 @@
   display: block !important;
   width: 100% !important;
   margin: 0 !important;
-  color: #814e5b !important;
+  color: var(--c-raspberry) !important;
   font-family: var(--font-serif) !important;
   font-size: clamp(22px, 4vw, 34px) !important;
   font-weight: 400 !important;
@@ -647,7 +649,7 @@
 #save-the-date #sd-countdown .sd-countdown-item span {
   display: block !important;
   margin: 8px 0 0 !important;
-  color: #a4777d !important;
+  color: var(--c-gold-deep) !important;
   font-family: var(--font-serif) !important;
   font-size: 10px !important;
   font-weight: 500 !important;

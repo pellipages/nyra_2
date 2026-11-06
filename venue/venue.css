@@ -9,12 +9,10 @@
     padding: 100px 7% 75px;
     box-sizing: border-box;
 
-    background-image:
-        url("../assets/images/half-saree-wallpaper.png") !important;
-
-    background-repeat: repeat !important;
-    background-position: center center !important;
-    background-size: 110% auto !important;
+    background-image: var(--wash-ivory), url("../assets/images/half-saree-wallpaper.png") !important;
+    background-repeat: no-repeat, repeat !important;
+    background-position: center center, center center !important;
+    background-size: 100% 100%, 110% auto !important;
 
     text-align: center;
     overflow: hidden;
@@ -34,8 +32,7 @@
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 4px;
-
-    color: #88734d;
+    color: var(--c-emerald);
 }
 
 .venue-heading h2 {
@@ -44,8 +41,7 @@
     font-family: var(--font-serif);
     font-size: 52px;
     font-weight: 300;
-
-    color: #80505a;
+    color: var(--c-raspberry-deep);
 }
 
 .venue-line {
@@ -54,7 +50,7 @@
 
     margin: 18px auto;
 
-    background: #a98250;
+    background: var(--gold-metal);
 }
 
 .venue-subtitle {
@@ -63,8 +59,7 @@
     font-family: var(--font-serif);
     font-size: 20px;
     font-style: italic;
-
-    color: #806858;
+    color: var(--c-ink-soft);
 }
 
 
@@ -81,14 +76,11 @@
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
 
-    border: 1px solid rgba(151, 112, 66, 0.65);
-
-    outline: 1px solid rgba(151, 112, 66, 0.35);
+    border: 1px solid var(--c-gold);
+    outline: 1px solid rgba(184, 137, 47, 0.45);
     outline-offset: 7px;
-
-    background: rgba(255, 250, 244, 0.65);
-
-    box-shadow: 0 12px 35px rgba(95, 59, 49, 0.10);
+    background: rgba(255, 252, 247, 0.9);
+    box-shadow: 0 14px 38px rgba(74, 20, 48, 0.16);
 }
 
 
@@ -103,15 +95,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background: rgba(255, 249, 242, 0.72);
+    background: rgba(255, 252, 247, 0.6);
 }
 
 .venue-ornament {
     margin-bottom: 12px;
 
     font-size: 25px;
-    color: #ad8752;
+    color: var(--c-gold);
 }
 
 .venue-label {
@@ -121,8 +112,7 @@
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 4px;
-
-    color: #92784e;
+    color: var(--c-emerald);
 }
 
 .venue-date {
@@ -132,8 +122,7 @@
     font-size: 34px;
     font-weight: 500;
     line-height: 1.3;
-
-    color: #80505a;
+    color: var(--c-raspberry-deep);
 }
 
 .venue-date span {
@@ -141,7 +130,7 @@
     margin-top: 5px;
 
     font-size: 27px;
-    color: #a45e70;
+    color: var(--c-raspberry);
 }
 
 .venue-divider {
@@ -150,7 +139,7 @@
 
     margin: 25px auto;
 
-    background: rgba(160, 122, 76, 0.35);
+    background: rgba(184, 137, 47, 0.45);
 }
 
 
@@ -170,7 +159,7 @@
 
 .venue-icon {
     font-size: 30px;
-    color: #a98250;
+    color: var(--c-gold);
 }
 
 .venue-detail small {
@@ -178,8 +167,7 @@
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 3px;
-
-    color: #92784e;
+    color: var(--c-emerald);
 }
 
 .venue-detail p {
@@ -188,15 +176,13 @@
     font-family: var(--font-serif);
     font-size: 22px;
     font-weight: 500;
-
-    color: #80505a;
+    color: var(--c-ink);
 }
 
 .venue-note {
     font-family: var(--font-serif);
     font-size: 13px;
-
-    color: #806858;
+    color: var(--c-ink-muted);
 }
 
 
@@ -211,11 +197,9 @@
     margin-top: 30px;
     padding: 13px 28px;
 
-    border: 1px solid #a98250;
-
-    background: #9b6871;
-
-    color: #fffaf4;
+    border: 1px solid var(--c-gold);
+    background: var(--c-emerald);
+    color: var(--c-ivory);
 
     font-family: var(--font-serif);
     font-size: 12px;
@@ -227,7 +211,7 @@
 }
 
 .venue-map-button:hover {
-    background: #80505a;
+    background: var(--c-emerald-deep);
     transform: translateY(-3px);
 }
 
@@ -274,19 +258,17 @@
 
     white-space: nowrap;
 
-    background: rgba(255, 249, 242, 0.94);
-    border: 1px solid rgba(151, 112, 66, 0.55);
+    background: rgba(255, 248, 239, 0.96);
+    border: 1px solid var(--c-gold);
 
     font-family: var(--font-serif);
     font-size: 12px;
     letter-spacing: 1px;
-
-    color: #80505a;
+    color: var(--c-raspberry-deep);
 }
-
 .map-caption span {
     margin-right: 7px;
-    color: #a98250;
+    color: var(--c-gold);
 }
 
 
@@ -309,16 +291,13 @@
     font-style: italic;
     font-weight: 300;
     font-size: 22px;
-
-    color: #9b6871;
+    color: var(--c-raspberry);
 }
 
 .venue-footer span {
     font-size: 25px;
-    color: #a98250;
+    color: var(--c-gold);
 }
-
-
 /* =========================================
    MOBILE RESPONSIVE
 ========================================= */
@@ -328,7 +307,7 @@
     .location-section {
         padding: 75px 22px 60px;
 
-        background-size: 120% auto !important;
+        background-size: 100% 100%, 120% auto !important;
     }
 
     .venue-heading {
@@ -400,5 +379,5 @@
     }
 }
 #venue {
-    background-size: 140% auto !important;
+    background-size: 100% 100%, 140% auto !important;
 }

@@ -3,10 +3,10 @@
     position: relative;
     width: 100%;
     padding: 90px 20px;
-    background-image: url("../assets/images/half-saree-wallpaper.png");
-    background-size: 120% auto;
-    background-position: center;
-    background-repeat: repeat;
+    background-image: var(--wash-blush), url("../assets/images/half-saree-wallpaper.png");
+    background-size: 100% 100%, 120% auto;
+    background-position: center, center;
+    background-repeat: no-repeat, repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +16,8 @@
     width: 100%;
     max-width: 600px;
     padding: 45px;
-    background: rgba(255, 250, 247, 0.94);
-    border: 2px solid #c5a16b;
+    background: rgba(255, 248, 239, 0.97);
+    border: 2px solid var(--c-gold);
     border-radius: 12px;
     box-shadow: 0 12px 35px rgba(80, 40, 50, 0.15);
 }
@@ -27,7 +27,7 @@
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 3px;
-    color: #95636d;
+    color: var(--c-emerald);
     margin-bottom: 12px;
 }
 
@@ -36,13 +36,13 @@
     font-family: var(--font-script);
     font-size: 55px;
     font-weight: normal;
-    color: #713747;
+    color: var(--c-raspberry);
     margin-bottom: 12px;
 }
 
 .rsvp-description {
     text-align: center;
-    color: #80505a;
+    color: var(--c-ink-soft);
     line-height: 1.7;
     margin-bottom: 30px;
 }
@@ -54,7 +54,7 @@
 }
 
 #rsvpForm > label {
-    color: #713747;
+    color: var(--c-raspberry-deep);
     font-size: 15px;
     margin-top: 8px;
 }
@@ -64,10 +64,10 @@
 #rsvpForm textarea {
     width: 100%;
     padding: 13px;
-    border: 1px solid #d8b5b5;
+    border: 1px solid rgba(184, 137, 47, 0.55);
     border-radius: 6px;
     background: #fffdfb;
-    color: #603b43;
+    color: var(--c-ink);
     font-family: inherit;
     font-size: 15px;
     outline: none;
@@ -75,7 +75,8 @@
 
 #rsvpForm input:focus,
 #rsvpForm textarea:focus {
-    border-color: #a16b75;
+    border-color: var(--c-raspberry);
+    box-shadow: 0 0 0 3px rgba(162, 15, 80, 0.15);
 }
 
 #rsvpForm textarea {
@@ -86,7 +87,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    color: #80505a;
+    color: var(--c-ink-soft);
 }
 
 .attendance-options label {
@@ -98,9 +99,9 @@
 #rsvpForm button {
     margin-top: 15px;
     padding: 15px;
-    background: #814957;
-    color: white;
-    border: none;
+    background: var(--c-raspberry);
+    color: var(--c-ivory);
+    border: 1px solid var(--c-gold);
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
@@ -108,19 +109,19 @@
 }
 
 #rsvpForm button:hover {
-    background: #603440;
+    background: var(--c-raspberry-deep);
 }
 
 #rsvpMessage {
     text-align: center;
-    color: #713747;
+    color: var(--c-emerald);
     margin-top: 8px;
 }
 
 @media (max-width: 600px) {
     .rsvp-section {
         padding: 55px 15px;
-        background-size: 130% auto;
+        background-size: 100% 100%, 130% auto;
     }
 
     .rsvp-card {
