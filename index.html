@@ -71,7 +71,7 @@
     </main>
 
     <!-- BACKGROUND MUSIC -->
-    <audio id="nyraMusic" loop preload="none">
+    <audio id="nyraMusic" loop preload="auto">
         <source src="assets/music/nyra-background.mp3" type="audio/mpeg">
     </audio>
 
@@ -123,33 +123,72 @@
         const nyraMusic = document.getElementById("nyraMusic");
         const musicButton = document.getElementById("nyraMusicButton");
 
-        musicButton.addEventListener("click", async () => {
+        // true once the guest has pressed Pause themselves,
+        // so we never restart music they chose to stop
+        let userPaused = false;
 
+        function showPlaying() {
+            musicButton.textContent = "Ⅱ Pause Music";
+            musicButton.setAttribute("aria-label", "Pause background music");
+        }
+
+        function showPaused() {
+            musicButton.textContent = "♫ Play Music";
+            musicButton.setAttribute("aria-label", "Play background music");
+        }
+
+        nyraMusic.preload = "auto";
+        nyraMusic.volume = 0.6;
+
+        nyraMusic.addEventListener("play", () => {
+            showPlaying();
+            removeGestureListeners();
+        });
+        nyraMusic.addEventListener("pause", showPaused);
+
+        // Pause/Play button
+        musicButton.addEventListener("click", async () => {
             if (nyraMusic.paused) {
+                userPaused = false;
                 try {
                     await nyraMusic.play();
-
-                    musicButton.textContent = "Ⅱ Pause Music";
-                    musicButton.setAttribute(
-                        "aria-label",
-                        "Pause background music"
-                    );
-
                 } catch (error) {
                     musicButton.textContent = "♫ Music unavailable";
                     console.error("Music playback failed:", error);
                 }
-
             } else {
+                userPaused = true;
                 nyraMusic.pause();
-
-                musicButton.textContent = "♫ Play Music";
-                musicButton.setAttribute(
-                    "aria-label",
-                    "Play background music"
-                );
             }
         });
+
+        // AUTO-START
+        // 1) Try straight away (works on some desktop browsers).
+        // 2) Browsers usually block that, so start on the guest's first
+        //    tap / click / keypress anywhere on the page.
+        const gestureEvents = ["pointerdown", "touchend", "click", "keydown"];
+
+        function tryStart(event) {
+            // the music button handles its own clicks
+            if (event && event.target && musicButton.contains(event.target)) return;
+            if (userPaused || !nyraMusic.paused) return;
+
+            nyraMusic.play().catch(() => {
+                // still blocked: keep listening for the next gesture
+            });
+        }
+
+        function removeGestureListeners() {
+            gestureEvents.forEach(type =>
+                document.removeEventListener(type, tryStart, true)
+            );
+        }
+
+        gestureEvents.forEach(type =>
+            document.addEventListener(type, tryStart, true)
+        );
+
+        nyraMusic.play().catch(() => {});
     </script>
 
 </body>
