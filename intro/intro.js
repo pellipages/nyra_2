@@ -31,6 +31,9 @@
   
       video.addEventListener("playing", () => {
         if (loading) loading.hidden = true;
+
+        // Tell the page the video has started so the music starts with it.
+        document.dispatchEvent(new Event("introVideoPlaying"));
       });
   
       video.addEventListener("error", () => {

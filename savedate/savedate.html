@@ -76,7 +76,7 @@
         id="sd-scratch-hint"
         aria-live="polite"
       >
-        Rub each golden coin to reveal the date.
+        Scratch each golden coin to reveal the date.
       </p>
 
       <!-- DATE REVEAL -->
@@ -88,6 +88,7 @@
           <span class="sd-date-num">12</span>
           <span class="sd-date-month">December 2026</span>
           <span class="sd-date-time">9:00 AM PST</span>
+          <span class="sd-date-note">Followed by lunch</span>
         </p>
 
         <p class="sd-result-message">
@@ -95,6 +96,73 @@
         </p>
       </div>
 
+    </div>
+
+    <!-- DRESS CODE + LOCATION (moved up from the old venue section) -->
+    <div class="sd-venue" id="venue">
+
+      <p class="sd-venue-small">WE WOULD LOVE TO SEE YOU</p>
+
+      <div class="venue-card">
+
+        <div class="venue-info">
+
+          <div class="venue-detail">
+            <span class="venue-icon">❀</span>
+            <div>
+              <small>DRESS CODE</small>
+              <p>Traditional Indian</p>
+              <span class="venue-note">Dreamy pastels</span>
+
+              <div class="venue-swatches" aria-label="Suggested colours: mint, sage, lavender, rose and peach">
+                <i style="--swatch:#bee0c8"></i>
+                <i style="--swatch:#d4dcb3"></i>
+                <i style="--swatch:#cdbfd8"></i>
+                <i style="--swatch:#eec5c3"></i>
+                <i style="--swatch:#edd2b5"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="venue-divider"></div>
+
+          <div class="venue-detail">
+            <span class="venue-icon">⌖</span>
+            <div>
+              <small>LOCATION</small>
+              <p>3132 Ashbourne Circle</p>
+              <span class="venue-note">San Ramon, CA</span>
+            </div>
+          </div>
+
+          <a
+            class="venue-map-button"
+            href="https://www.google.com/maps/search/?api=1&query=3132+Ashbourne+Circle%2C+San+Ramon%2C+CA"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Directions <span>↗</span>
+          </a>
+
+        </div>
+
+        <div class="venue-map">
+          <iframe
+            src="https://maps.google.com/maps?q=3132%20Ashbourne%20Circle%2C%20San%20Ramon%2C%20CA&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <div class="map-caption">
+            <span>⌖</span> Find Us Here
+          </div>
+        </div>
+
+        <!-- little Nyra peeking over the card -->
+        <img class="sd-venue-nyra" src="assets/images/nyra-mini.webp" alt="" aria-hidden="true" draggable="false">
+
+      </div>
     </div>
 
     <!-- COUNTDOWN -->

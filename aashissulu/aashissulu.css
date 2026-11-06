@@ -97,8 +97,45 @@
     color: var(--c-ink);
 }
 
-.blessings-names li span {
-    margin: 0 6px;
+.blessings-couple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.blessings-name em {
+    font-size: 0.72em;
+    font-weight: 400;
+    color: var(--c-ink-soft);
+}
+
+.blessings-amp {
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.2;
+    color: var(--c-gold);
+}
+
+.blessings-names li.blessings-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 26px auto;
+    width: 220px;
+    max-width: 80%;
+}
+
+.blessings-divider i {
+    flex: 1;
+    height: 1px;
+    background: var(--gold-metal);
+}
+
+.blessings-divider b {
+    font-size: 18px;
+    font-weight: 400;
     color: var(--c-gold);
 }
 
@@ -137,10 +174,11 @@
         font-size: 19px;
     }
 
-    /* couple's names stack neatly instead of wrapping mid-name */
-    .blessings-names li span {
-        display: block;
-        margin: 0;
-        line-height: 1.1;
+    .blessings-amp {
+        font-size: 17px;
+    }
+
+    .blessings-names li.blessings-divider {
+        margin: 20px auto;
     }
 }

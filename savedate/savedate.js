@@ -269,7 +269,7 @@
     } else if (revealedCount > 0) {
       hint.textContent = `${3 - revealedCount} more to reveal`;
     } else {
-      hint.textContent = "Rub each golden coin to reveal the date";
+      hint.textContent = "Scratch each golden coin to reveal the date.";
     }
   }
 

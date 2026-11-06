@@ -189,6 +189,14 @@
             document.addEventListener(type, tryStart, true)
         );
 
+        // Start the music the moment the intro video starts playing.
+        // If the browser blocks sound without a tap, the gesture listeners
+        // above start it on the guest's first tap, even mid-video.
+        document.addEventListener("introVideoPlaying", () => {
+            if (userPaused || !nyraMusic.paused) return;
+            nyraMusic.play().catch(() => {});
+        });
+
         nyraMusic.play().catch(() => {});
     </script>
 

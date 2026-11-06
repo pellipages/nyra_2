@@ -243,11 +243,13 @@
 #save-the-date .sd-scratch-hint {
   position: relative;
   margin: 24px auto 0;
-  min-height: 25px;
-  color: var(--c-ink-muted);
+  min-height: 30px;
+  color: var(--c-raspberry-deep);
   font-family: var(--font-serif);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.6;
 }
 
 /* =====================================================
@@ -794,5 +796,96 @@
 @media (prefers-reduced-motion: reduce) {
   #save-the-date .sd-floral-hanging {
     animation: none !important;
+  }
+}
+
+
+/* =====================================================
+   DRESS CODE + LOCATION (inside Save the Date)
+   Reuses the .venue-* card styles from venue.css.
+===================================================== */
+
+#save-the-date .sd-date-note {
+  display: block;
+  margin-top: 4px;
+  color: var(--c-ink-soft);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+}
+
+#save-the-date .sd-venue {
+  position: relative;
+  margin: 70px auto 0;
+  width: 100%;
+  scroll-margin-top: 20px;
+}
+
+#save-the-date .sd-venue-small {
+  margin: 0 0 22px;
+  color: var(--c-gold-deep);
+  font-family: var(--font-serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+}
+
+#save-the-date .sd-venue .venue-card {
+  width: 100%;
+  text-align: center;
+}
+
+#save-the-date .sd-venue .venue-info {
+  padding: 40px 28px;
+}
+
+#save-the-date .sd-venue .venue-map,
+#save-the-date .sd-venue .venue-map iframe {
+  min-height: 420px;
+}
+
+/* Nyra peeking over the top-right corner of the card */
+#save-the-date .sd-venue-nyra {
+  position: absolute;
+  top: -66px;
+  right: 28px;
+  width: 38px;
+  height: auto;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  animation: sd-venue-nyra-bob 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px rgba(74, 20, 48, 0.18));
+}
+
+@keyframes sd-venue-nyra-bob {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%      { transform: translateY(-6px) rotate(3deg); }
+}
+
+@media (max-width: 700px) {
+  #save-the-date .sd-venue {
+    margin-top: 56px;
+  }
+
+  #save-the-date .sd-venue-small {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  #save-the-date .sd-venue .venue-map,
+  #save-the-date .sd-venue .venue-map iframe {
+    min-height: 300px;
+  }
+
+  #save-the-date .sd-venue-nyra {
+    right: 18px;
+    top: -58px;
+    width: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #save-the-date .sd-venue-nyra {
+    animation: none;
   }
 }
