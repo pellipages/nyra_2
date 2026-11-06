@@ -2,6 +2,28 @@
 // Gallery uses event delegation because main.js loads
 // gallery.html dynamically after the page starts.
 
+function showGalleryPhoto(index) {
+    const photos = document.querySelectorAll(".floating-photo img");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const caption = document.getElementById("lightboxCaption");
+    const count = document.getElementById("lightboxCount");
+
+    if (!photos.length || !lightboxImage) return;
+
+    window.currentGalleryPhoto = (index + photos.length) % photos.length;
+
+    const photo = photos[window.currentGalleryPhoto];
+
+    lightboxImage.src = photo.src;
+    lightboxImage.alt = photo.alt;
+
+    if (caption) caption.textContent = photo.dataset.caption || "";
+    if (count) {
+        count.textContent =
+            `${window.currentGalleryPhoto + 1} of ${photos.length}`;
+    }
+}
+
 document.addEventListener("click", function (event) {
 
     const photo = event.target.closest(".floating-photo img");
@@ -10,11 +32,9 @@ document.addEventListener("click", function (event) {
     if (!lightbox) return;
 
     const photos = document.querySelectorAll(".floating-photo img");
-    const lightboxImage = document.getElementById("lightboxImage");
 
     if (photo) {
-        window.currentGalleryPhoto = Array.from(photos).indexOf(photo);
-        lightboxImage.src = photo.src;
+        showGalleryPhoto(Array.from(photos).indexOf(photo));
         lightbox.classList.add("active");
         return;
     }
@@ -25,18 +45,12 @@ document.addEventListener("click", function (event) {
     }
 
     if (event.target.closest(".gallery-prev")) {
-        window.currentGalleryPhoto =
-            (window.currentGalleryPhoto - 1 + photos.length) % photos.length;
-
-        lightboxImage.src = photos[window.currentGalleryPhoto].src;
+        showGalleryPhoto(window.currentGalleryPhoto - 1);
         return;
     }
 
     if (event.target.closest(".gallery-next")) {
-        window.currentGalleryPhoto =
-            (window.currentGalleryPhoto + 1) % photos.length;
-
-        lightboxImage.src = photos[window.currentGalleryPhoto].src;
+        showGalleryPhoto(window.currentGalleryPhoto + 1);
         return;
     }
 
@@ -51,24 +65,15 @@ document.addEventListener("keydown", function (event) {
 
     if (!lightbox || !lightbox.classList.contains("active")) return;
 
-    const photos = document.querySelectorAll(".floating-photo img");
-    const lightboxImage = document.getElementById("lightboxImage");
-
     if (event.key === "Escape") {
         lightbox.classList.remove("active");
     }
 
     if (event.key === "ArrowRight") {
-        window.currentGalleryPhoto =
-            (window.currentGalleryPhoto + 1) % photos.length;
-
-        lightboxImage.src = photos[window.currentGalleryPhoto].src;
+        showGalleryPhoto(window.currentGalleryPhoto + 1);
     }
 
     if (event.key === "ArrowLeft") {
-        window.currentGalleryPhoto =
-            (window.currentGalleryPhoto - 1 + photos.length) % photos.length;
-
-        lightboxImage.src = photos[window.currentGalleryPhoto].src;
+        showGalleryPhoto(window.currentGalleryPhoto - 1);
     }
 });

@@ -5,48 +5,49 @@
       <p>Little Moments, Big Memories</p>
       <h2>Nyra's Gallery</h2>
       <span>♡</span>
+      <p class="gallery-hint">Tap a photo to read its story</p>
   </div>
 
   <div class="floating-gallery">
 
       <div class="floating-photo photo-1">
-          <img src="assets/images/gallery/photo1.jpeg" alt="Nyra photo 1">
+          <img src="assets/images/gallery/photo1.jpeg" alt="Nyra in a mint-green skirt and orange top, standing in a sunlit hallway" data-caption="Twirling in mint and marigold">
       </div>
 
       <div class="floating-photo photo-2">
-          <img src="assets/images/gallery/photo2.jpeg" alt="Nyra photo 2">
+          <img src="assets/images/gallery/photo2.jpeg" alt="Nyra as a newborn, wrapped in a soft blanket and a tiny lavender hat" data-caption="Where our story began">
       </div>
 
       <div class="floating-photo photo-3">
-          <img src="assets/images/gallery/photo3.jpeg" alt="Nyra photo 3">
+          <img src="assets/images/gallery/photo3.jpeg" alt="Nyra as a baby in a fluffy pink monster costume" data-caption="Our little pink monster, all giggles">
       </div>
 
       <div class="floating-photo photo-4">
-          <img src="assets/images/gallery/photo4.jpeg" alt="Nyra photo 4">
+          <img src="assets/images/gallery/photo4.jpeg" alt="Nyra in a white princess gown and sash, in front of a golden carriage on a red carpet" data-caption="A princess and her golden carriage">
       </div>
 
       <div class="floating-photo photo-5">
-          <img src="assets/images/gallery/photo5.jpeg" alt="Nyra photo 5">
+          <img src="assets/images/gallery/photo5.jpeg" alt="Nyra as a toddler in a purple silk blouse and gold necklace, seated on the floor" data-caption="Sitting pretty in silk and gold">
       </div>
 
       <div class="floating-photo photo-6">
-          <img src="assets/images/gallery/photo6.jpeg" alt="Nyra photo 6">
+          <img src="assets/images/gallery/photo6.jpeg" alt="Nyra smiling in a pink silk dress with puffed sleeves and a gold necklace" data-caption="Pure sunshine in pink silk">
       </div>
 
       <div class="floating-photo photo-7">
-          <img src="assets/images/gallery/photo7.jpeg" alt="Nyra photo 7">
+          <img src="assets/images/gallery/photo7.jpeg" alt="Nyra draped in a colorful saree with gold jewellery, posing on a staircase" data-caption="Grace, in every fold of the saree">
       </div>
       
 <div class="floating-photo photo-8">
-  <img src="assets/images/gallery/photo8.jpeg" alt="Nyra photo 8">
+  <img src="assets/images/gallery/photo8.jpeg" alt="Nyra as a toddler in a red ladybug costume with wings and antennae" data-caption="Our smallest, sweetest ladybug">
 </div>
 
 <div class="floating-photo photo-9">
-  <img src="assets/images/gallery/photo9.jpeg" alt="Nyra photo 9">
+  <img src="assets/images/gallery/photo9.jpeg" alt="Nyra in a red top and a sparkling black skirt" data-caption="Red, sparkle, and a little attitude">
 </div>
 
 <div class="floating-photo photo-10">
-  <img src="assets/images/gallery/photo10.jpeg" alt="Nyra photo 10">
+  <img src="assets/images/gallery/photo10.jpeg" alt="Nyra as a toddler in a coral ruffled top and a floral skirt, hair in a bun" data-caption="Ruffles, roses, and a tiny bun">
 </div>
 
 
@@ -56,7 +57,13 @@
   <div class="gallery-lightbox" id="galleryLightbox">
       <button class="gallery-close" aria-label="Close">&times;</button>
       <button class="gallery-prev" aria-label="Previous">&#10094;</button>
-      <img id="lightboxImage" src="" alt="Nyra">
+      <figure class="gallery-figure">
+          <img id="lightboxImage" src="" alt="Nyra">
+          <figcaption>
+              <span id="lightboxCaption"></span>
+              <small id="lightboxCount"></small>
+          </figcaption>
+      </figure>
       <button class="gallery-next" aria-label="Next">&#10095;</button>
   </div>
 
