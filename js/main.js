@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "bappu-bomma/bappu-bomma.html",
     "gallery/gallery.html",
     "venue/venue.html",
+    "aashissulu/aashissulu.html",
     "rsvp/rsvp.html",
     "footer/footer.html"
   ];

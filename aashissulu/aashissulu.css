@@ -1,0 +1,146 @@
+/* =========================================
+   NYRA AASHIRVADAM (BLESSINGS) SECTION
+   Short and compact on purpose.
+========================================= */
+
+.blessings-section {
+    position: relative;
+    width: 100%;
+    padding: 70px 7% 60px;
+    box-sizing: border-box;
+
+    background-image: var(--wash-pink-mist), url("../assets/images/half-saree-wallpaper.webp");
+    background-repeat: no-repeat, repeat;
+    background-position: center center, center center;
+    background-size: 100% 100%, 120% auto;
+
+    text-align: center;
+    overflow: hidden;
+}
+
+.blessings-card {
+    position: relative;
+
+    width: 640px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 42px 30px 30px;
+    box-sizing: border-box;
+
+    border: 1px solid var(--c-gold);
+    outline: 1px solid rgba(184, 137, 47, 0.45);
+    outline-offset: 7px;
+    background: rgba(255, 252, 247, 0.9);
+    box-shadow: 0 14px 38px rgba(74, 20, 48, 0.16);
+}
+
+.blessings-small {
+    margin: 0 0 8px;
+
+    font-family: var(--font-serif);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: var(--c-pink);
+}
+
+.blessings-card h2 {
+    margin: 0;
+
+    font-family: var(--font-statement);
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0 !important;
+    font-variant-ligatures: common-ligatures contextual;
+    color: var(--c-raspberry-deep);
+}
+
+.blessings-telugu {
+    margin: 2px 0 0;
+
+    font-family: var(--font-telugu);
+    font-size: 18px;
+    color: var(--c-raspberry);
+}
+
+.blessings-line {
+    width: 65px;
+    height: 1px;
+    margin: 16px auto;
+
+    background: var(--gold-metal);
+}
+
+.blessings-lead {
+    margin: 0 0 14px;
+
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--c-ink-soft);
+}
+
+.blessings-names {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.blessings-names li {
+    margin: 6px 0;
+
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--c-ink);
+}
+
+.blessings-names li span {
+    margin: 0 6px;
+    color: var(--c-gold);
+}
+
+.blessings-ornament {
+    margin-top: 14px;
+
+    font-size: 22px;
+    color: var(--c-gold);
+}
+
+@media (max-width: 700px) {
+
+    .blessings-section {
+        padding: 55px 22px 45px;
+    }
+
+    .blessings-card {
+        padding: 36px 18px 24px;
+        outline-offset: 4px;
+    }
+
+    .blessings-small {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .blessings-card h2 {
+        font-size: 44px;
+    }
+
+    .blessings-lead {
+        font-size: 17px;
+    }
+
+    .blessings-names li {
+        font-size: 19px;
+    }
+
+    /* couple's names stack neatly instead of wrapping mid-name */
+    .blessings-names li span {
+        display: block;
+        margin: 0;
+        line-height: 1.1;
+    }
+}

@@ -9,7 +9,8 @@
     { from: "invitation",   to: "save-the-date", label: "Reveal the date" },
     { from: "save-the-date", to: "meet-bappu-bomma", label: "Meet little Nyra" },
     { from: "nyra-gallery", to: "venue",         label: "See where to join us" },
-    { from: "venue",        to: "rsvp",          label: "Kindly respond" }
+    { from: "venue",        to: "aashissulu",   label: "Receive their blessings" },
+    { from: "aashissulu",  to: "rsvp",          label: "Kindly respond" }
   ];
 
   function addNextCues() {
