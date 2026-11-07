@@ -17,6 +17,17 @@ const RSVP_ENDPOINT =
     "https://bcubwgmzbeqpedmhvmfj.supabase.co/functions/v1/submit-rsvp";
 // ------------------------------------------------------------------------
 
+// Real addresses look like https://<20 letters or digits>.supabase.co/...
+// Checking the shape (not a placeholder word) means filling in the project
+// ref can never break this check.
+const RSVP_ENDPOINT_PATTERN =
+    /^https:\/\/[a-z0-9]{20}\.supabase\.co\/functions\/v1\/submit-rsvp$/;
+const RSVP_ENDPOINT_OK = RSVP_ENDPOINT_PATTERN.test(RSVP_ENDPOINT);
+
+// Changes with every edit to this file, so the browser console can tell us
+// which copy of the script the live site is really running.
+const RSVP_BUILD = "2026-11-07-debug-2";
+
 const RSVP_TIMEOUT_MS = 15000;
 const NAME_MAX = 80;
 const MESSAGE_MAX = 500;
@@ -32,6 +43,12 @@ const RSVP_TEXT = {
     notConnected:
         "The RSVP form isn't connected yet. Please try again later."
 };
+
+console.info(
+    "[rsvp] script loaded. build:", RSVP_BUILD,
+    "| endpoint looks valid:", RSVP_ENDPOINT_OK,
+    "| page origin:", location.origin
+);
 
 const rsvpLength = (text) => [...text].length;
 
@@ -72,8 +89,9 @@ document.addEventListener("submit", async function (event) {
     const button = form.querySelector("button[type='submit']");
     const originalLabel = button.textContent;
 
-    if (RSVP_ENDPOINT.includes("bcubwgmzbeqpedmhvmfj")) {
-        console.error("rsvp.js: set RSVP_ENDPOINT to your Supabase project URL.");
+    if (!RSVP_ENDPOINT_OK) {
+        console.error("[rsvp] RSVP_ENDPOINT is not a valid Supabase function address:",
+            RSVP_ENDPOINT, "| build:", RSVP_BUILD);
         message.textContent = RSVP_TEXT.notConnected;
         return;
     }
@@ -95,6 +113,8 @@ document.addEventListener("submit", async function (event) {
     const wishesOk = rsvpLength(wishes) <= MESSAGE_MAX;
 
     if (!nameOk || !attendingOk || !guestsOk || !wishesOk) {
+        console.warn("[rsvp] blocked in the browser before sending:",
+            { nameOk, attendingOk, guestsOk, wishesOk });
         message.textContent = RSVP_TEXT.check;
         return;
     }
@@ -122,6 +142,7 @@ document.addEventListener("submit", async function (event) {
         });
 
         const result = await response.json().catch(() => ({}));
+        console.info("[rsvp] server answered:", response.status, result);
 
         if (!response.ok || result.ok !== true) {
             message.textContent = messageForFailure(response.status, result.code);
@@ -134,6 +155,13 @@ document.addEventListener("submit", async function (event) {
         }
     } catch (error) {
         // offline, timed out, or blocked (for example, wrong website address)
+        console.error(
+            "[rsvp] request failed before any answer:",
+            error && error.name, error && error.message,
+            "| If this says 'Failed to fetch', the website address is probably",
+            "missing from ALLOWED_ORIGINS, or the endpoint is wrong. Page origin:",
+            location.origin
+        );
         message.textContent = RSVP_TEXT.generic;
     } finally {
         clearTimeout(timer);
