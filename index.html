@@ -170,7 +170,7 @@
         function tryStart(event) {
             // the music button handles its own clicks
             if (event && event.target && musicButton.contains(event.target)) return;
-            if (userPaused || !nyraMusic.paused) return;
+            if (userPaused || document.hidden || !nyraMusic.paused) return;
 
             nyraMusic.play().catch(() => {
                 // still blocked: keep listening for the next gesture
@@ -191,11 +191,29 @@
         // If the browser blocks sound without a tap, the gesture listeners
         // above start it on the guest's first tap, even mid-video.
         document.addEventListener("introVideoPlaying", () => {
-            if (userPaused || !nyraMusic.paused) return;
+            if (userPaused || document.hidden || !nyraMusic.paused) return;
             nyraMusic.play().catch(() => {});
         });
 
         nyraMusic.play().catch(() => {});
+
+        // PAUSE WHEN THE GUEST LEAVES THE TAB
+        // Switching tabs, switching apps or locking the phone pauses the
+        // music, and it picks up again when they come back, unless they
+        // had pressed Pause themselves.
+        let pausedByTabLeave = false;
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                if (!nyraMusic.paused) {
+                    pausedByTabLeave = true;
+                    nyraMusic.pause();
+                }
+            } else if (pausedByTabLeave) {
+                pausedByTabLeave = false;
+                if (!userPaused) nyraMusic.play().catch(() => {});
+            }
+        });
     </script>
 
 </body>
