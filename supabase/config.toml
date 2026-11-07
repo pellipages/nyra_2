@@ -1,0 +1,8 @@
+project_id = "nyra-rsvp"
+
+# The RSVP form is used by anonymous guests, so there is no user login to
+# check. The function protects itself instead (allowed origin, bot check,
+# rate limits, strict validation). Supabase's own JWT check only understands
+# the old key format, so it must be off for this function.
+[functions.submit-rsvp]
+verify_jwt = false
