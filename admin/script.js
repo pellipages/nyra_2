@@ -9,7 +9,7 @@ const ADMIN_BUILD = "2026-11-07-admin-ui";
 // Public by design: the project URL and the publishable key. Paste the key
 // (starts with sb_publishable_) between the quotes. Never put a secret key here.
 const SUPABASE_URL = "https://bcubwgmzbeqpedmhvmfj.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_qC2lRFkyr8b1H9-M8YGRJA_jAKeDx1r";
 
 const keyLooksValid = /^sb_publishable_[A-Za-z0-9_-]+$/.test(SUPABASE_PUBLISHABLE_KEY);
 const libraryLoaded = !!(window.supabase && window.supabase.createClient);
