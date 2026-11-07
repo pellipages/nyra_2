@@ -14,7 +14,7 @@
 // /functions/v1/submit-rsvp. Example:
 //   https://abcdefghijklmnop.supabase.co/functions/v1/submit-rsvp
 const RSVP_ENDPOINT =
-    "https://YOUR_PROJECT_REF.supabase.co/functions/v1/submit-rsvp";
+    "https://bcubwgmzbeqpedmhvmfj.supabase.co/functions/v1/submit-rsvp";
 // ------------------------------------------------------------------------
 
 const RSVP_TIMEOUT_MS = 15000;
@@ -72,7 +72,7 @@ document.addEventListener("submit", async function (event) {
     const button = form.querySelector("button[type='submit']");
     const originalLabel = button.textContent;
 
-    if (RSVP_ENDPOINT.includes("YOUR_PROJECT_REF")) {
+    if (RSVP_ENDPOINT.includes("bcubwgmzbeqpedmhvmfj")) {
         console.error("rsvp.js: set RSVP_ENDPOINT to your Supabase project URL.");
         message.textContent = RSVP_TEXT.notConnected;
         return;
