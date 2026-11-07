@@ -914,3 +914,15 @@
 #save-the-date .sd-venue .venue-swatches {
   justify-content: flex-start;
 }
+
+/* "In your time: ..." line, shown only when the guest's clock differs */
+#save-the-date .sd-date-local {
+  display: block;
+  margin-top: 8px;
+  color: var(--c-ink-soft);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+  letter-spacing: 0;
+  text-indent: 0;
+}

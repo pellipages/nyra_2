@@ -352,6 +352,19 @@ $("refreshButton").addEventListener("click", () => loadResponses(true));
 
 // ---------- CSV ----------
 
+// "2026-11-07 10:00 UTC" / "2026-11-07 02:00 PST": same moment, written in one zone.
+function stamp(iso, zone) {
+    if (!iso) return "";
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return "";
+    const parts = {};
+    new Intl.DateTimeFormat("en-US", {
+        timeZone: zone, hourCycle: "h23", timeZoneName: "short",
+        year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"
+    }).formatToParts(date).forEach((p) => { parts[p.type] = p.value; });
+    return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute} ${parts.timeZoneName}`;
+}
+
 // One CSV cell: quote it, and stop Excel treating guest text as a formula.
 function csvCell(value) {
     let text = String(value);
@@ -366,8 +379,8 @@ $("exportButton").addEventListener("click", async function () {
 
         if (data.length === 0) { showToast("There are no RSVPs to download yet."); return; }
 
-        const headers = ["Guest Name", "Attendance", "Number of Guests", "Wishes", "Submitted On"];
-        const rows = data.map((g) => [g.name, g.attending, g.guests, g.message || "", g.created_at || ""]);
+        const headers = ["Guest Name", "Attendance", "Number of Guests", "Wishes", "Submitted (UTC)", "Submitted (Pacific)"];
+        const rows = data.map((g) => [g.name, g.attending, g.guests, g.message || "", stamp(g.created_at, "UTC"), stamp(g.created_at, "America/Los_Angeles")]);
         const csv = [headers, ...rows].map((r) => r.map(csvCell).join(",")).join("\n");
 
         const url = URL.createObjectURL(new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" }));
