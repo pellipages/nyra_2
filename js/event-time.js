@@ -94,26 +94,6 @@
         catch (e) { return null; }
     }
 
-    // "In your time: ..." only when the guest's clock differs from the event's.
-    function localLine(when, zone) {
-        const mine = guestZone();
-        if (!mine) return "";
-
-        const wall = (z) => fmt({
-            year: "numeric", month: "numeric", day: "numeric",
-            hour: "numeric", minute: "numeric", hourCycle: "h23"
-        }, z).format(when);
-        if (wall(mine) === wall(zone)) return "";
-
-        const day = (z) => fmt({ year: "numeric", month: "numeric", day: "numeric" }, z).format(when);
-        const time = tidy(fmt({ hour: "numeric", minute: "2-digit", timeZoneName: "long" }, mine).format(when));
-
-        if (day(mine) === day(zone)) return "In your time: " + time;
-
-        const date = fmt({ weekday: "long", month: "long", day: "numeric" }, mine).format(when);
-        return "In your time: " + date + " at " + time;
-    }
-
     // ---------- put it on the page ----------
 
     function apply() {
@@ -140,21 +120,6 @@
             setText(section.querySelector('.sd-coin[data-part="day"] strong'), dayNumber);
             setText(section.querySelector('.sd-coin[data-part="month"] strong'), monthShort);
             setText(section.querySelector('.sd-coin[data-part="year"] strong'), year);
-
-            const anchor = section.querySelector(".sd-date-time");
-            const line = localLine(when, zone);
-            let local = section.querySelector(".sd-date-local");
-
-            if (line && anchor) {
-                if (!local) {
-                    local = document.createElement("span");
-                    local.className = "sd-date-local";
-                    anchor.insertAdjacentElement("afterend", local);
-                }
-                local.textContent = line;
-            } else if (local) {
-                local.remove();
-            }
         }
 
         setText(document.querySelector(".footer-date"), longDate + " \u00b7 " + time);
