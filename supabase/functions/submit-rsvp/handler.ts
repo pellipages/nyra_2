@@ -114,6 +114,20 @@ async function hashIp(ip: string, salt: string): Promise<string> {
   return [...new Uint8Array(sig)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
+// Rate limits. Many guests may share ONE IP address (a family on the same
+// home Wi-Fi, or a phone network), and they all count as one "person" here,
+// so the per-IP numbers are generous. Spam is still held back by the origin
+// check, validation, the honeypot and the global ceiling below.
+//   burst  : most RSVPs one IP may send in burstSeconds
+//   day    : most RSVPs one IP may send in 24 hours
+//   global : most RSVPs from everyone together in one hour (circuit breaker)
+export const RATE_LIMITS = {
+  burstMax: 60,
+  burstSeconds: 5 * 60,
+  dayMax: 150,
+  globalMax: 500,
+} as const;
+
 export function clientIp(req: Request): string | null {
   // Cloudflare sets cf-connecting-ip itself, so the visitor cannot forge it.
   return req.headers.get("cf-connecting-ip") ?? req.headers.get("x-real-ip");
@@ -233,8 +247,8 @@ export function createHandler(deps: Deps) {
       const ip = clientIp(req);
       const ipHash = await hashIp(ip ?? "unknown", config.ipHashSalt);
 
-      const burstOk = await deps.consumeRateLimit(`rsvp:burst:${ipHash}`, 5, 5 * 60);
-      const dayOk = burstOk && await deps.consumeRateLimit(`rsvp:day:${ipHash}`, 20, 24 * 60 * 60);
+      const burstOk = await deps.consumeRateLimit(`rsvp:burst:${ipHash}`, RATE_LIMITS.burstMax, RATE_LIMITS.burstSeconds);
+      const dayOk = burstOk && await deps.consumeRateLimit(`rsvp:day:${ipHash}`, RATE_LIMITS.dayMax, 24 * 60 * 60);
       if (!burstOk || !dayOk) {
         return json(429, { code: "rate_limited" }, corsOrigin, { "Retry-After": burstOk ? "3600" : "300" });
       }
@@ -249,7 +263,7 @@ export function createHandler(deps: Deps) {
       }
 
       // 7. global circuit breaker ---------------------------------------------
-      const globalOk = await deps.consumeRateLimit("rsvp:global", 150, 60 * 60);
+      const globalOk = await deps.consumeRateLimit("rsvp:global", RATE_LIMITS.globalMax, 60 * 60);
       if (!globalOk) return json(429, { code: "rate_limited" }, corsOrigin, { "Retry-After": "600" });
 
       // 8. save ------------------------------------------------------------------

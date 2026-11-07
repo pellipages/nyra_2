@@ -9,10 +9,10 @@ directly; they call this function, which checks everything first.
 3. Strict validation (name 1-80, Yes/No, guests 1-20 or 0, blessing max 500,
    no control characters, no unknown fields)
 4. Hidden "website" field (honeypot) filled = bot, silently ignored
-5. Per-IP rate limit: 5 per 5 minutes and 20 per day (IP stored only as a salted hash)
+5. Per-IP rate limit: 60 per 5 minutes and 150 per day (IP stored only as a salted hash). Generous on purpose: a whole family on one Wi-Fi shares one IP. Edit `RATE_LIMITS` in handler.ts
 6. OPTIONAL bot check (Cloudflare Turnstile). It is OFF until you set
    `TURNSTILE_SECRET_KEY`; then a valid token from your own site is required
-7. Global limit: 150 per hour (circuit breaker)
+7. Global limit: 500 per hour (circuit breaker)
 8. Insert with the secret key
 
 The bot check is off for now, so spam defence is the honeypot, strict
