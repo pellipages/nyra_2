@@ -1,5 +1,13 @@
 
-const API = "http://localhost:5000/api";
+// Public by design: the project URL and the publishable key. Paste the key
+// (starts with sb_publishable_) between the quotes. Never put a secret key here.
+const SUPABASE_URL = "https://bcubwgmzbeqpedmhvmfj.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "";
+
+const keyLooksValid = /^sb_publishable_[A-Za-z0-9_-]+$/.test(SUPABASE_PUBLISHABLE_KEY);
+const db = keyLooksValid
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
+    : null;
 
 let allResponses = [];
 
@@ -14,25 +22,22 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
     message.textContent = "Checking login...";
 
     try {
-        const response = await fetch(`${API}/login`, {
-            method: "POST",
-            credentials: "include",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: document.getElementById("username").value,
-                password: document.getElementById("password").value
-            })
+        if (!db) throw new Error("Admin is not connected yet (missing key).");
+
+        const { error } = await db.auth.signInWithPassword({
+            email: document.getElementById("email").value.trim(),
+            password: document.getElementById("password").value
         });
 
-        const result = await response.json();
+        if (error) throw new Error("Wrong email or password.");
 
-        if (!response.ok) {
-            throw new Error(result.error || "Login failed");
+        if (!(await isAdmin())) {
+            await db.auth.signOut();
+            throw new Error("This account is not allowed to view RSVPs.");
         }
 
         this.reset();
+        message.textContent = "";
         showDashboard();
 
     } catch (error) {
@@ -42,26 +47,28 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
     button.disabled = false;
 });
 
+// IS THE SIGNED-IN USER LISTED IN admins?
+// (the admins_read_self policy lets a user see only their own row)
+async function isAdmin() {
+    const { data, error } = await db.from("admins").select("user_id").maybeSingle();
+    return !error && !!data;
+}
+
 // CHECK LOGIN STATUS
 async function checkLogin() {
-    try {
-        const response = await fetch(`${API}/auth/status`, {
-            credentials: "include"
-        });
-
-        const result = await response.json();
-
-        if (result.loggedIn) {
-            showDashboard();
-        } else {
-            showLogin();
-        }
-
-    } catch (error) {
+    if (!db) {
         showLogin();
-
         document.getElementById("loginMessage").textContent =
-            "Cannot connect to the RSVP server.";
+            "Admin is not connected yet (missing key).";
+        return;
+    }
+
+    const { data } = await db.auth.getSession();
+
+    if (data.session && await isAdmin()) {
+        showDashboard();
+    } else {
+        showLogin();
     }
 }
 
@@ -89,20 +96,14 @@ async function loadResponses() {
     `;
 
     try {
-        const response = await fetch(`${API}/rsvps`, {
-            credentials: "include"
-        });
+        const { data, error } = await db
+            .from("rsvps")
+            .select("*")
+            .order("created_at", { ascending: false });
 
-        if (response.status === 401) {
-            showLogin();
-            return;
-        }
+        if (error) throw new Error("Could not load responses");
 
-        if (!response.ok) {
-            throw new Error("Could not load responses");
-        }
-
-        allResponses = await response.json();
+        allResponses = data;
 
         let attendingCount = 0;
         let notAttendingCount = 0;
@@ -135,11 +136,11 @@ async function loadResponses() {
 
     } catch (error) {
         table.innerHTML = `
-            <tr><td colspan="7">Unable to connect to the RSVP server.</td></tr>
+            <tr><td colspan="7">Unable to load responses.</td></tr>
         `;
 
         status.textContent =
-            "Make sure your backend server is running.";
+            "Sign in again, or check your connection.";
     }
 }
 
@@ -182,7 +183,7 @@ function displayResponses() {
             guest.guests,
             guest.message || "-",
             guest.created_at
-                ? new Date(guest.created_at + " UTC").toLocaleString()
+                ? new Date(guest.created_at).toLocaleString()
                 : "-"
         ];
 
@@ -222,23 +223,22 @@ document.getElementById("attendanceFilter").addEventListener(
     displayResponses
 );
 
+// ONE CSV CELL: quote it, and stop Excel treating guest text as a formula
+function csvCell(value) {
+    let text = String(value);
+    if (/^[=+\-@\t\r]/.test(text)) text = "'" + text;
+    return `"${text.replace(/"/g, '""')}"`;
+}
+
 // DOWNLOAD RESPONSES AS CSV
 async function downloadCSV() {
     try {
-        const response = await fetch(`${API}/rsvps`, {
-            credentials: "include"
-        });
+        const { data, error } = await db
+            .from("rsvps")
+            .select("*")
+            .order("created_at", { ascending: true });
 
-        if (response.status === 401) {
-            showLogin();
-            return;
-        }
-
-        if (!response.ok) {
-            throw new Error("Unable to download responses");
-        }
-
-        const data = await response.json();
+        if (error) throw new Error("Unable to download responses");
 
         if (data.length === 0) {
             alert("No RSVP responses available.");
@@ -262,9 +262,7 @@ async function downloadCSV() {
         ]);
 
         const csv = [headers, ...rows]
-            .map(row => row.map(value =>
-                `"${String(value).replace(/"/g, '""')}"`
-            ).join(","))
+            .map(row => row.map(value => csvCell(value)).join(","))
             .join("\n");
 
         const blob = new Blob(
@@ -299,20 +297,15 @@ async function deleteResponse(id) {
     if (!confirmDelete) return;
 
     try {
-        const response = await fetch(`${API}/rsvps/${id}`, {
-            method: "DELETE",
-            credentials: "include"
-        });
+        // .select() returns the deleted rows, so 0 rows means nothing was deleted
+        const { data, error } = await db
+            .from("rsvps")
+            .delete()
+            .eq("id", id)
+            .select();
 
-        const result = await response.json();
-
-        if (response.status === 401) {
-            showLogin();
-            return;
-        }
-
-        if (!response.ok) {
-            throw new Error(result.error || "Delete failed");
+        if (error || !data || data.length === 0) {
+            throw new Error("Delete failed");
         }
 
         alert("RSVP response deleted successfully!");
@@ -328,28 +321,17 @@ async function deleteResponse(id) {
 document.getElementById("logoutButton").addEventListener(
     "click",
     async function() {
-        try {
-            const response = await fetch(`${API}/logout`, {
-                method: "POST",
-                credentials: "include"
-            });
+        await db.auth.signOut();
 
-            if (response.ok) {
-                allResponses = [];
+        allResponses = [];
 
-                document.getElementById("guestSearch").value = "";
-                document.getElementById("attendanceFilter").value = "All";
+        document.getElementById("guestSearch").value = "";
+        document.getElementById("attendanceFilter").value = "All";
 
-                showLogin();
+        showLogin();
 
-                document.getElementById("loginMessage").textContent =
-                    "You have logged out successfully.";
-            }
-
-        } catch (error) {
-            document.getElementById("statusMessage").textContent =
-                "Unable to log out. Please try again.";
-        }
+        document.getElementById("loginMessage").textContent =
+            "You have logged out successfully.";
     }
 );
 
