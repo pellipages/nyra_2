@@ -926,3 +926,62 @@
   letter-spacing: 0;
   text-indent: 0;
 }
+
+
+/* ---------------------------------------------------------
+   DRESS CODE highlight
+   A soft blush "ribbon" panel: same pastels and gold hairline
+   as the rest of the invitation, so it reads as part of the
+   design and not as a highlighted box.
+--------------------------------------------------------- */
+#save-the-date .sd-venue .venue-detail--dress {
+  position: relative;
+  max-width: 300px;
+  padding: 20px 22px 22px 14px;
+  border: 1px solid rgba(207, 167, 98, 0.55);
+  border-radius: 22px 22px 22px 6px;
+  background:
+    radial-gradient(ellipse 70% 60% at 12% 0%, rgba(255, 251, 246, 0.95), transparent 70%),
+    linear-gradient(135deg, rgba(248, 215, 230, 0.55), rgba(255, 227, 211, 0.50));
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 248, 239, 0.75),
+    0 8px 20px rgba(169, 70, 112, 0.10);
+}
+
+#save-the-date .sd-venue .venue-detail--dress .venue-icon {
+  color: var(--c-raspberry);
+}
+
+#save-the-date .sd-venue .venue-detail--dress small {
+  color: var(--c-pink-deep);
+}
+
+#save-the-date .sd-venue .venue-detail--dress .venue-note {
+  font-style: italic;
+}
+
+#save-the-date .sd-venue .venue-detail--dress .venue-swatches {
+  gap: 10px;
+  margin-top: 14px;
+}
+
+#save-the-date .sd-venue .venue-detail--dress .venue-swatches i {
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(207, 167, 98, 0.9);
+  box-shadow:
+    0 0 0 3px rgba(255, 252, 247, 0.95),
+    0 0 0 4px rgba(207, 167, 98, 0.35),
+    0 4px 8px rgba(169, 70, 112, 0.16);
+}
+
+@media (max-width: 600px) {
+  #save-the-date .sd-venue .venue-detail--dress {
+    max-width: 290px;
+  }
+  #save-the-date .sd-venue .venue-detail--dress .venue-swatches i {
+    width: 24px;
+    height: 24px;
+  }
+}
+
