@@ -18,6 +18,8 @@
               type="text"
               id="guestName"
               placeholder="Enter your full name"
+              maxlength="80"
+              autocomplete="name"
               required
           >
 
@@ -50,11 +52,24 @@
               id="guestMessage"
               placeholder="Share a blessing, a wish, or a sweet memory…"
               rows="4"
+              maxlength="500"
           ></textarea>
+
+          <!-- Hidden trap for bots. Humans never see or fill it. -->
+          <div class="rsvp-hp" aria-hidden="true">
+              <label for="guestWebsite">Leave this field empty</label>
+              <input
+                  type="text"
+                  id="guestWebsite"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+              >
+          </div>
 
           <button type="submit">Submit RSVP ♡</button>
 
-          <p id="rsvpMessage"></p>
+          <p id="rsvpMessage" role="status" aria-live="polite"></p>
 
       </form>
   </div>
