@@ -184,3 +184,14 @@
         margin: 20px auto;
     }
 }
+
+/* Grandparents' names are set in Telugu */
+.blessings-names .blessings-name {
+    font-family: var(--font-telugu);
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.blessings-names .blessings-amp {
+    font-family: var(--font-serif);
+}

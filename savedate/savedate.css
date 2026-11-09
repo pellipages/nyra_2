@@ -973,3 +973,21 @@
   }
 }
 
+
+/* Family invite line (between the scratch card and the venue block) */
+#save-the-date .sd-family-note {
+  position: relative;
+  z-index: 2;
+  margin: 28px auto 0;
+  color: var(--c-raspberry-deep);
+  font-family: var(--font-serif);
+  font-size: clamp(17px, 2.8vw, 21px);
+  font-style: italic;
+  line-height: 1.7;
+  text-align: center;
+}
+
+#save-the-date .sd-family-note strong {
+  font-weight: 700;
+  font-style: normal;
+}
