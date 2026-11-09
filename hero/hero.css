@@ -217,3 +217,20 @@
     background: var(--c-raspberry-deep);
     transform: translateY(-2px);
 }
+
+  /* "(The Beginning)" under the hero title */
+  #hero .title-begin {
+    display: block;
+    margin-top: 10px;
+    color: var(--c-raspberry);
+    font-family: var(--font-script);
+    font-size: clamp(30px, 4.6vw, 54px);
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  @media (max-width: 600px) {
+    #hero .title-begin {
+      font-size: clamp(24px, 6.8vw, 34px);
+    }
+  }

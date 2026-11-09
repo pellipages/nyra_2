@@ -131,3 +131,33 @@ body {
   background: var(--c-rose);
   color: var(--c-ink);
 }
+
+/* "(The Beginning)" tag after "Subha Muhurtham": Pinyon Script, sized up because
+   script faces run small, and never wrapped or upper-cased by its parent. */
+.beginning {
+  display: inline-block;
+  margin-left: 0.1em;
+  font-family: var(--font-script);
+  font-size: 1.3em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+/* On its own line under a heading */
+.beginning--block {
+  display: block;
+  margin: 10px 0 0;
+  font-size: 1.1em;
+}
+
+/* Small-print contexts need a bigger multiplier to stay legible */
+.footer-bottom .beginning,
+.eyebrow .beginning {
+  margin-top: 4px;
+  font-size: 1.7em;
+}
