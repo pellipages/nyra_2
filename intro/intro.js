@@ -43,16 +43,20 @@
       }
     });
 
-    // The video does NOT autoplay. It starts (with sound) when the guest
-    // taps "Tap to open". Because this is a real tap, the browser allows
-    // sound, and the music starts at the same moment.
+    // The video does NOT autoplay. It starts when the guest taps
+    // "Tap to open". The video stays MUTED on purpose: on iPhones, a video
+    // with sound takes over the audio session and pauses the background
+    // music. The song comes from the separate <audio> element instead.
     if (startBtn) {
       startBtn.addEventListener("click", () => {
         startBtn.classList.add("is-hidden");
         if (loading) loading.hidden = false;
 
-        video.muted = false;      // allow the video's own audio
+        video.muted = true;       // keep silent so it can't pause the music
         video.currentTime = 0;
+
+        // Start the song first, inside the tap, so iOS allows it
+        document.dispatchEvent(new Event("introVideoPlaying"));
 
         video.play().catch(() => {
           if (loading) {
@@ -60,9 +64,6 @@
             loading.textContent = "Click Skip intro to continue";
           }
         });
-
-        // Start the song together with the video
-        document.dispatchEvent(new Event("introVideoPlaying"));
       });
     }
   }
