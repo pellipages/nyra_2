@@ -1,23 +1,25 @@
-
 <div class="intro-overlay" id="intro-overlay">
-    <video
-      id="intro-video"
-      class="intro-video"
-      autoplay
-      muted
-      playsinline
-      preload="auto"
-      aria-label="Floral doors opening to welcome guests"
-    >
-      <source src="assets/videos/intro.mp4" type="video/mp4">
-    </video>
-  
-    <div class="intro-loading" id="intro-loading">
-      A joyful celebration awaits…
-    </div>
-  
-    <button class="intro-skip" id="intro-skip" type="button">
-      Skip intro →
-    </button>
+  <video
+    id="intro-video"
+    class="intro-video"
+    muted
+    playsinline
+    preload="auto"
+    aria-label="Floral doors opening to welcome guests"
+  >
+    <source src="assets/videos/intro.mp4" type="video/mp4">
+  </video>
+
+  <!-- TAP TO OPEN: video + music only start after this is tapped -->
+  <button class="intro-start" id="intro-start" type="button">
+    Tap to open
+  </button>
+
+  <div class="intro-loading" id="intro-loading" hidden>
+    A joyful celebration awaits…
   </div>
-  
+
+  <button class="intro-skip" id="intro-skip" type="button">
+    Skip intro →
+  </button>
+</div>
